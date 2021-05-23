@@ -1,0 +1,456 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Program Listing for File DdsOptiStats.hpp &mdash; sinspekto  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+        <script src="../_static/mathwork.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #00457c" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> sinspekto
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.4.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../rst/intro.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../rst/intro.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rst/intro.html#usage">Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../rst/intro.html#c-setup">C++ setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rst/intro.html#minimal-qml-example">Minimal QML example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rst/intro.html#integrating-sinspekto-with-qtchart">Integrating sinspekto with QtChart</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../rst/intro.html#implementing-new-sinspekto-components">Implementing new sinspekto components</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../rst/installation.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../rst/installation.html#configuration-options-and-targets">Configuration options and targets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rst/installation.html#linux">Linux</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../rst/installation.html#prerequisites-debian-based">Prerequisites (debian-based)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rst/installation.html#documentation-prerequisites-optional">Documentation prerequisites <em>(optional)</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rst/installation.html#compiling-on-linux">Compiling on Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../rst/installation.html#windows">Windows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../rst/installation.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rst/installation.html#documentation-prerequisites-on-windows-optional">Documentation prerequisites on Windows <em>(optional)</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rst/installation.html#compiling-on-windows">Compiling on Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../rst/installation.html#android">Android</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../rst/installation.html#compiling-for-android">Compiling for Android</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../rst/installation.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library-api.html">Public API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="library-api.html#class-hierarchy">Class Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="library-api.html#file-hierarchy">File Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="library-api.html#items-listing">Items listing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="library-api.html#namespaces">Namespaces</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="namespace_fkin.html">Namespace fkin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespace_qml_enums.html">Namespace qml_enums</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespace_ratatosk.html">Namespace ratatosk</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespace_ratatosk__types.html">Namespace ratatosk::types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespace_sinspekto.html">Namespace sinspekto</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespace_weather.html">Namespace weather</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="library-api.html#classes-and-structs">Classes and Structs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="structQtToDds.html">Struct QtToDds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classAxisEqualizer.html">Class AxisEqualizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsBitPublisher.html">Class DdsBitPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsBitSubscriber.html">Class DdsBitSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsBuffer.html">Class DdsBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsCommandPublisher.html">Class DdsCommandPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsCommandSubscriber.html">Class DdsCommandSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsDataSource.html">Class DdsDataSource</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsDoubleBuffer.html">Class DdsDoubleBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsDoublePublisher.html">Class DdsDoublePublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsDoubleSubscriber.html">Class DdsDoubleSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec1dBuffer.html">Class DdsIdVec1dBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec1dPublisher.html">Class DdsIdVec1dPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec1dSubscriber.html">Class DdsIdVec1dSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec2dBuffer.html">Class DdsIdVec2dBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec2dPublisher.html">Class DdsIdVec2dPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec2dSubscriber.html">Class DdsIdVec2dSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec3dBuffer.html">Class DdsIdVec3dBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec3dPublisher.html">Class DdsIdVec3dPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec3dSubscriber.html">Class DdsIdVec3dSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec4dBuffer.html">Class DdsIdVec4dBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec4dPublisher.html">Class DdsIdVec4dPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec4dSubscriber.html">Class DdsIdVec4dSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsKinematics2DBuffer.html">Class DdsKinematics2DBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsKinematics2DPublisher.html">Class DdsKinematics2DPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsKinematics2DSubscriber.html">Class DdsKinematics2DSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsKinematics6DBuffer.html">Class DdsKinematics6DBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsKinematics6DPublisher.html">Class DdsKinematics6DPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsKinematics6DSubscriber.html">Class DdsKinematics6DSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsNlpConfigSubscriber.html">Class DdsNlpConfigSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsOptiStatsSubscriber.html">Class DdsOptiStatsSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsStateAutomaton.html">Class DdsStateAutomaton</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsTimepointBuffer.html">Class DdsTimepointBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsWeatherDataSubscriber.html">Class DdsWeatherDataSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskCurrentAtDepthSubscriber.html">Class RatatoskCurrentAtDepthSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskCurrentProfileSubscriber.html">Class RatatoskCurrentProfileSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskDepthInfoSubscriber.html">Class RatatoskDepthInfoSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskDouble2Publisher.html">Class RatatoskDouble2Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskDouble2Subscriber.html">Class RatatoskDouble2Subscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskDouble3Publisher.html">Class RatatoskDouble3Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskDouble3Subscriber.html">Class RatatoskDouble3Subscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskDouble4Publisher.html">Class RatatoskDouble4Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskDouble4Subscriber.html">Class RatatoskDouble4Subscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskDoubleValPublisher.html">Class RatatoskDoubleValPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskDoubleValSubscriber.html">Class RatatoskDoubleValSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskGyroInfoSubscriber.html">Class RatatoskGyroInfoSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskLogInfoSubscriber.html">Class RatatoskLogInfoSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskPosInfoSubscriber.html">Class RatatoskPosInfoSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskWindInfoSubscriber.html">Class RatatoskWindInfoSubscriber</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="library-api.html#enums">Enums</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enum_namespaceqml__enums_1a91a3db16c3322be5b42a537cbf33d61d.html">Enum CommandType</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enum_namespaceqml__enums_1a4100f76c977cffcd7c0e8093cbc434d9.html">Enum DimId</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enum_namespaceqml__enums_1a8d48cdbe8201d9a5d7b02635adfbeb41.html">Enum ProcessStateKind</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="library-api.html#functions">Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="function_namespacesinspekto_1a5eb31c91d17e5c6f0ff46e4113f10215.html">Function sinspekto::generate_hex</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_namespacesinspekto_1a9065a36a0a487427926cfc99c068adcb.html">Function sinspekto::LoadSinspektoQmlTypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_namespacesinspekto_1aa28cae1bd666c474ab29e71cac6203cb.html">Function sinspekto::random_char</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_namespacesinspekto_1ae40a6ffe27e9591f460e5f1021c468a9.html">Function sinspekto::replace_data_points</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_namespacesinspekto_1a80b1550ed2b16a84b7e2a13c956223b7.html">Function sinspekto::replace_double_points</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="library-api.html#typedefs">Typedefs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="typedef_namespacesinspekto_1ab62727382eb24203ba8b49f0c2d98a14.html">Typedef sinspekto::RangeTX</a></li>
+<li class="toctree-l4"><a class="reference internal" href="typedef_namespacesinspekto_1a2c75aecc73fe2475517a40e817b8d235.html">Typedef sinspekto::RangeXY</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api_private/library-api-private.html">Private API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api_private/library-api-private.html#class-hierarchy">Class Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_private/library-api-private.html#file-hierarchy">File Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_private/library-api-private.html#items-listing">Items listing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api_private/library-api-private.html#namespaces">Namespaces</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/namespace_fkin__Dds.html">Namespace fkin::Dds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/namespace_QtToDds.html">Namespace QtToDds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/namespace_sinspekto.html">Namespace sinspekto</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api_private/library-api-private.html#classes-and-structs">Classes and Structs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/structQtToDds_1_1Dds.html">Struct Dds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/structsinspekto_1_1Reader.html">Template Struct Reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/structsinspekto_1_1Writer.html">Template Struct Writer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/classchart__example.html">Class chart_example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/classminimal__example.html">Class minimal_example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/classsinspekto_1_1DdsReaderListener.html">Template Class DdsReaderListener</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">sinspekto</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Program Listing for File DdsOptiStats.hpp</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="program-listing-for-file-ddsoptistats-hpp">
+<span id="program-listing-file-sinspekto-ddsoptistats-hpp"></span><h1>Program Listing for File DdsOptiStats.hpp<a class="headerlink" href="#program-listing-for-file-ddsoptistats-hpp" title="Permalink to this headline">¶</a></h1>
+<p>↰ <a class="reference internal" href="file_sinspekto_DdsOptiStats.hpp.html#file-sinspekto-ddsoptistats-hpp"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">sinspekto/DdsOptiStats.hpp</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#pragma once</span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;sinspekto/QtToDds.hpp&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;QDateTime&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+
+<span class="k">class</span> <span class="nc">DdsOptiStatsSubscriber</span> <span class="o">:</span> <span class="k">public</span> <span class="n">QObject</span>
+<span class="p">{</span>
+  <span class="n">Q_OBJECT</span>
+  <span class="nf">Q_PROPERTY</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">iterations</span> <span class="n">READ</span> <span class="n">iterations</span> <span class="n">NOTIFY</span> <span class="n">iterationsChanged</span><span class="p">)</span>
+  <span class="n">Q_PROPERTY</span><span class="p">(</span><span class="kt">bool</span> <span class="n">status</span> <span class="n">READ</span> <span class="n">status</span> <span class="n">NOTIFY</span> <span class="n">statusChanged</span><span class="p">)</span>
+  <span class="n">Q_PROPERTY</span><span class="p">(</span><span class="n">QString</span> <span class="n">status_text</span> <span class="n">READ</span> <span class="n">status_text</span> <span class="n">NOTIFY</span> <span class="n">status_textChanged</span><span class="p">)</span>
+  <span class="n">Q_PROPERTY</span><span class="p">(</span><span class="kt">double</span> <span class="n">obj</span> <span class="n">READ</span> <span class="n">obj</span> <span class="n">NOTIFY</span> <span class="n">objChanged</span><span class="p">)</span>
+  <span class="n">Q_PROPERTY</span><span class="p">(</span><span class="kt">double</span> <span class="n">solve_time</span> <span class="n">READ</span> <span class="n">solve_time</span> <span class="n">NOTIFY</span> <span class="n">solve_timeChanged</span><span class="p">)</span>
+  <span class="n">Q_PROPERTY</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">p</span> <span class="n">READ</span> <span class="n">p</span> <span class="n">NOTIFY</span> <span class="n">pChanged</span><span class="p">)</span>
+  <span class="n">Q_PROPERTY</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">x0</span> <span class="n">READ</span> <span class="n">x0</span> <span class="n">NOTIFY</span> <span class="n">x0Changed</span><span class="p">)</span>
+  <span class="n">Q_PROPERTY</span><span class="p">(</span><span class="n">QDateTime</span> <span class="n">timestamp</span> <span class="n">READ</span> <span class="n">timestamp</span> <span class="n">NOTIFY</span> <span class="n">timestampChanged</span><span class="p">)</span>
+
+<span class="k">public</span><span class="o">:</span>
+  <span class="k">explicit</span> <span class="n">DdsOptiStatsSubscriber</span><span class="p">(</span><span class="n">QObject</span> <span class="o">*</span><span class="n">parent</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">);</span>
+  <span class="k">virtual</span> <span class="o">~</span><span class="n">DdsOptiStatsSubscriber</span><span class="p">();</span>
+
+  <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">iterations</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+  <span class="kt">bool</span> <span class="nf">status</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+  <span class="n">QString</span> <span class="nf">status_text</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+  <span class="kt">double</span> <span class="nf">obj</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+  <span class="kt">double</span> <span class="nf">solve_time</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">p</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">x0</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+  <span class="n">QDateTime</span> <span class="nf">timestamp</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+  <span class="n">Q_INVOKABLE</span> <span class="kt">void</span> <span class="n">init</span><span class="p">(</span>
+      <span class="n">QtToDds</span><span class="o">*</span> <span class="n">dds</span><span class="p">,</span>
+      <span class="k">const</span> <span class="n">QString</span><span class="o">&amp;</span> <span class="n">topic</span><span class="p">,</span>
+      <span class="k">const</span> <span class="n">QString</span><span class="o">&amp;</span> <span class="n">id</span><span class="p">,</span>
+      <span class="kt">bool</span> <span class="n">with_listener</span><span class="o">=</span><span class="nb">true</span><span class="p">);</span>
+
+<span class="nl">signals</span><span class="p">:</span>
+  <span class="kt">void</span> <span class="n">iterationsChanged</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">iterations</span><span class="p">);</span>
+  <span class="kt">void</span> <span class="nf">statusChanged</span><span class="p">(</span><span class="kt">bool</span> <span class="n">status</span><span class="p">);</span>
+  <span class="kt">void</span> <span class="nf">status_textChanged</span><span class="p">(</span><span class="n">QString</span> <span class="n">status_text</span><span class="p">);</span>
+  <span class="kt">void</span> <span class="nf">objChanged</span><span class="p">(</span><span class="kt">double</span> <span class="n">objective</span><span class="p">);</span>
+  <span class="kt">void</span> <span class="nf">solve_timeChanged</span><span class="p">(</span><span class="kt">double</span> <span class="n">solve_time</span><span class="p">);</span>
+  <span class="kt">void</span> <span class="nf">pChanged</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">parameters</span><span class="p">);</span>
+  <span class="kt">void</span> <span class="nf">x0Changed</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">x0</span><span class="p">);</span>
+  <span class="kt">void</span> <span class="nf">timestampChanged</span><span class="p">(</span><span class="n">QDateTime</span> <span class="n">timestamp</span><span class="p">);</span>
+  <span class="kt">void</span> <span class="nf">eventHeard</span><span class="p">();</span>
+
+<span class="k">public</span> <span class="nl">slots</span><span class="p">:</span>
+  <span class="kt">void</span> <span class="n">updateValues</span><span class="p">();</span>
+
+<span class="k">private</span><span class="o">:</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">sinspekto</span><span class="o">::</span><span class="n">Reader</span><span class="o">&lt;</span><span class="n">fkin</span><span class="o">::</span><span class="n">OptiStats</span><span class="o">&gt;&gt;</span> <span class="n">m_reader</span><span class="p">;</span>
+  <span class="n">QString</span> <span class="n">m_id</span><span class="p">;</span>
+
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, SINTEF Ocean.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. <jinja2.runtime.BlockReference object at 0x7f998b3c9690>
+
+<br /><br />
+<table>
+  <tr>
+    <td width="120" style="vertical-align:middle;text-align:center">
+      <img alt="FHF" style="border-width:0" width="100" src="../_static/FHF-black-txt.png" />
+    </td>
+    <td>
+      This work was funded by <a href="https://www.fhf.no/fhf/about-fhf-english">FHF &ndash; Norwegian Seafood Research Fund</a> with <a href="https://www.fhf.no/prosjekter/prosjektbasen/901350/">Grant No. 901350</a>.<br /><br />
+    </td>
+  </tr>
+  <tr>
+    <td width="90" style="vertical-align:middle;text-align:center">
+      <img alt="GNU General Public License, Version 3.0" style="border-width:0" width="90" src="https://upload.wikimedia.org/wikipedia/commons/9/93/GPLv3_Logo.svg" />
+  </td>
+  <td>
+      This program is free software: you can redistribute it and/or modify
+      it under the terms of the GNU General Public License as published by
+      the Free Software Foundation, either version 3 of the License, or
+      (at your option) any later version.<br /><br />
+
+      This program is distributed in the hope that it will be useful,
+      but WITHOUT ANY WARRANTY; without even the implied warranty of
+      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+      GNU General Public License for more details.<br /><br />
+
+      You should have received a copy of the GNU General Public License
+      along with this program.  If not, see <a rel="license" href="https://www.gnu.org/licenses/">gnu.org/licenses</a>.
+  </td>
+  </tr>
+</table>
+
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

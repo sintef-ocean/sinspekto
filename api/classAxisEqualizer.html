@@ -1,0 +1,637 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Class AxisEqualizer &mdash; sinspekto  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+        <script src="../_static/mathwork.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class DdsBitPublisher" href="classDdsBitPublisher.html" />
+    <link rel="prev" title="Struct QtToDds" href="structQtToDds.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #00457c" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> sinspekto
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.4.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../rst/intro.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../rst/intro.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rst/intro.html#usage">Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../rst/intro.html#c-setup">C++ setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rst/intro.html#minimal-qml-example">Minimal QML example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rst/intro.html#integrating-sinspekto-with-qtchart">Integrating sinspekto with QtChart</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../rst/intro.html#implementing-new-sinspekto-components">Implementing new sinspekto components</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../rst/installation.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../rst/installation.html#configuration-options-and-targets">Configuration options and targets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rst/installation.html#linux">Linux</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../rst/installation.html#prerequisites-debian-based">Prerequisites (debian-based)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rst/installation.html#documentation-prerequisites-optional">Documentation prerequisites <em>(optional)</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rst/installation.html#compiling-on-linux">Compiling on Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../rst/installation.html#windows">Windows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../rst/installation.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rst/installation.html#documentation-prerequisites-on-windows-optional">Documentation prerequisites on Windows <em>(optional)</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rst/installation.html#compiling-on-windows">Compiling on Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../rst/installation.html#android">Android</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../rst/installation.html#compiling-for-android">Compiling for Android</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../rst/installation.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="library-api.html">Public API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="library-api.html#class-hierarchy">Class Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="library-api.html#file-hierarchy">File Hierarchy</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="library-api.html#items-listing">Items listing</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="library-api.html#namespaces">Namespaces</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="namespace_fkin.html">Namespace fkin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespace_qml_enums.html">Namespace qml_enums</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespace_ratatosk.html">Namespace ratatosk</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespace_ratatosk__types.html">Namespace ratatosk::types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespace_sinspekto.html">Namespace sinspekto</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespace_weather.html">Namespace weather</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="reference internal" href="library-api.html#classes-and-structs">Classes and Structs</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="structQtToDds.html">Struct QtToDds</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Class AxisEqualizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsBitPublisher.html">Class DdsBitPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsBitSubscriber.html">Class DdsBitSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsBuffer.html">Class DdsBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsCommandPublisher.html">Class DdsCommandPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsCommandSubscriber.html">Class DdsCommandSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsDataSource.html">Class DdsDataSource</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsDoubleBuffer.html">Class DdsDoubleBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsDoublePublisher.html">Class DdsDoublePublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsDoubleSubscriber.html">Class DdsDoubleSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec1dBuffer.html">Class DdsIdVec1dBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec1dPublisher.html">Class DdsIdVec1dPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec1dSubscriber.html">Class DdsIdVec1dSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec2dBuffer.html">Class DdsIdVec2dBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec2dPublisher.html">Class DdsIdVec2dPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec2dSubscriber.html">Class DdsIdVec2dSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec3dBuffer.html">Class DdsIdVec3dBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec3dPublisher.html">Class DdsIdVec3dPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec3dSubscriber.html">Class DdsIdVec3dSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec4dBuffer.html">Class DdsIdVec4dBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec4dPublisher.html">Class DdsIdVec4dPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec4dSubscriber.html">Class DdsIdVec4dSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsKinematics2DBuffer.html">Class DdsKinematics2DBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsKinematics2DPublisher.html">Class DdsKinematics2DPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsKinematics2DSubscriber.html">Class DdsKinematics2DSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsKinematics6DBuffer.html">Class DdsKinematics6DBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsKinematics6DPublisher.html">Class DdsKinematics6DPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsKinematics6DSubscriber.html">Class DdsKinematics6DSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsNlpConfigSubscriber.html">Class DdsNlpConfigSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsOptiStatsSubscriber.html">Class DdsOptiStatsSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsStateAutomaton.html">Class DdsStateAutomaton</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsTimepointBuffer.html">Class DdsTimepointBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsWeatherDataSubscriber.html">Class DdsWeatherDataSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskCurrentAtDepthSubscriber.html">Class RatatoskCurrentAtDepthSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskCurrentProfileSubscriber.html">Class RatatoskCurrentProfileSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskDepthInfoSubscriber.html">Class RatatoskDepthInfoSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskDouble2Publisher.html">Class RatatoskDouble2Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskDouble2Subscriber.html">Class RatatoskDouble2Subscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskDouble3Publisher.html">Class RatatoskDouble3Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskDouble3Subscriber.html">Class RatatoskDouble3Subscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskDouble4Publisher.html">Class RatatoskDouble4Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskDouble4Subscriber.html">Class RatatoskDouble4Subscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskDoubleValPublisher.html">Class RatatoskDoubleValPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskDoubleValSubscriber.html">Class RatatoskDoubleValSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskGyroInfoSubscriber.html">Class RatatoskGyroInfoSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskLogInfoSubscriber.html">Class RatatoskLogInfoSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskPosInfoSubscriber.html">Class RatatoskPosInfoSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskWindInfoSubscriber.html">Class RatatoskWindInfoSubscriber</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="library-api.html#enums">Enums</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enum_namespaceqml__enums_1a91a3db16c3322be5b42a537cbf33d61d.html">Enum CommandType</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enum_namespaceqml__enums_1a4100f76c977cffcd7c0e8093cbc434d9.html">Enum DimId</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enum_namespaceqml__enums_1a8d48cdbe8201d9a5d7b02635adfbeb41.html">Enum ProcessStateKind</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="library-api.html#functions">Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="function_namespacesinspekto_1a5eb31c91d17e5c6f0ff46e4113f10215.html">Function sinspekto::generate_hex</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_namespacesinspekto_1a9065a36a0a487427926cfc99c068adcb.html">Function sinspekto::LoadSinspektoQmlTypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_namespacesinspekto_1aa28cae1bd666c474ab29e71cac6203cb.html">Function sinspekto::random_char</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_namespacesinspekto_1ae40a6ffe27e9591f460e5f1021c468a9.html">Function sinspekto::replace_data_points</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_namespacesinspekto_1a80b1550ed2b16a84b7e2a13c956223b7.html">Function sinspekto::replace_double_points</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="library-api.html#typedefs">Typedefs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="typedef_namespacesinspekto_1ab62727382eb24203ba8b49f0c2d98a14.html">Typedef sinspekto::RangeTX</a></li>
+<li class="toctree-l4"><a class="reference internal" href="typedef_namespacesinspekto_1a2c75aecc73fe2475517a40e817b8d235.html">Typedef sinspekto::RangeXY</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api_private/library-api-private.html">Private API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api_private/library-api-private.html#class-hierarchy">Class Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_private/library-api-private.html#file-hierarchy">File Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_private/library-api-private.html#items-listing">Items listing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api_private/library-api-private.html#namespaces">Namespaces</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/namespace_fkin__Dds.html">Namespace fkin::Dds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/namespace_QtToDds.html">Namespace QtToDds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/namespace_sinspekto.html">Namespace sinspekto</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api_private/library-api-private.html#classes-and-structs">Classes and Structs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/structQtToDds_1_1Dds.html">Struct Dds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/structsinspekto_1_1Reader.html">Template Struct Reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/structsinspekto_1_1Writer.html">Template Struct Writer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/classchart__example.html">Class chart_example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/classminimal__example.html">Class minimal_example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/classsinspekto_1_1DdsReaderListener.html">Template Class DdsReaderListener</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">sinspekto</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="library-api.html">Public API</a> &raquo;</li>
+        
+      <li>Class AxisEqualizer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="classDdsBitPublisher.html" class="btn btn-neutral float-right" title="Class DdsBitPublisher" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+      
+      
+        <a href="structQtToDds.html" class="btn btn-neutral float-left" title="Struct QtToDds" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-axisequalizer">
+<span id="exhale-class-classaxisequalizer"></span><h1>Class AxisEqualizer<a class="headerlink" href="#class-axisequalizer" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_sinspekto_AxisEqualizer.hpp.html#file-sinspekto-axisequalizer-hpp"><span class="std std-ref">File AxisEqualizer.hpp</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">QObject</span></code></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv413AxisEqualizer">
+<span id="_CPPv313AxisEqualizer"></span><span id="_CPPv213AxisEqualizer"></span><span id="AxisEqualizer"></span><span class="target" id="classAxisEqualizer"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AxisEqualizer</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">QObject</span></span><a class="headerlink" href="#_CPPv413AxisEqualizer" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Helper QML element to ensure that axes of a plot have equal scaling. </p>
+<p><a class="reference internal" href="#classAxisEqualizer"><span class="std std-ref">AxisEqualizer</span></a> has properties that inform on the bounding box of the data series in a plot area. It is useful in connection with QtChart plots, to automatically resize axes ranges to enforce equal scaling of axes. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N13AxisEqualizer13AxisEqualizerEP7QObject">
+<span id="_CPPv3N13AxisEqualizer13AxisEqualizerEP7QObject"></span><span id="_CPPv2N13AxisEqualizer13AxisEqualizerEP7QObject"></span><span id="AxisEqualizer::AxisEqualizer__QObjectP"></span><span class="target" id="classAxisEqualizer_1a7a746c35cd1ce190bfee8ac7b3353b9d"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AxisEqualizer</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">QObject</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">parent</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13AxisEqualizer13AxisEqualizerEP7QObject" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+<p>Connects signals <a class="reference internal" href="#classAxisEqualizer_1ae89eb5391756cb9c7bfeed4d752af7d0"><span class="std std-ref">boundingBoxChanged()</span></a> and <a class="reference internal" href="#classAxisEqualizer_1a73e3ee259551ee2e90ffa4257d38b5e1"><span class="std std-ref">plotAreaChanged()</span></a> to slot <a class="reference internal" href="#classAxisEqualizer_1a95ee6289c5d9932ef2a26fd67414e370"><span class="std std-ref">calculateEqualAxes()</span></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>parent</strong> – <strong>[in]</strong> QObject pointer. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N13AxisEqualizerD0Ev">
+<span id="_CPPv3N13AxisEqualizerD0Ev"></span><span id="_CPPv2N13AxisEqualizerD0Ev"></span><span id="AxisEqualizer::~AxisEqualizer"></span><span class="target" id="classAxisEqualizer_1a361a0437b72e24ef296628ad231e6c0f"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~AxisEqualizer</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13AxisEqualizerD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Destructor. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK13AxisEqualizer5bboxXEv">
+<span id="_CPPv3NK13AxisEqualizer5bboxXEv"></span><span id="_CPPv2NK13AxisEqualizer5bboxXEv"></span><span id="AxisEqualizer::bboxXC"></span><span class="target" id="classAxisEqualizer_1ab4adf4f2e8b39a88b9dd1cf39fcdb795"></span><span class="n"><span class="pre">QPointF</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bboxX</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Property accessor for data bounding box x-axis range. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK13AxisEqualizer5bboxYEv">
+<span id="_CPPv3NK13AxisEqualizer5bboxYEv"></span><span id="_CPPv2NK13AxisEqualizer5bboxYEv"></span><span id="AxisEqualizer::bboxYC"></span><span class="target" id="classAxisEqualizer_1a0286726fc93f881ae2398683d075728f"></span><span class="n"><span class="pre">QPointF</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bboxY</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Property accessor for data bounding box y-axis range. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK13AxisEqualizer10equalAxisXEv">
+<span id="_CPPv3NK13AxisEqualizer10equalAxisXEv"></span><span id="_CPPv2NK13AxisEqualizer10equalAxisXEv"></span><span id="AxisEqualizer::equalAxisXC"></span><span class="target" id="classAxisEqualizer_1a6fc4c5253d4efd92c819ede1f0e35508"></span><span class="n"><span class="pre">QPointF</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">equalAxisX</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Property accessor for equal x-axis range. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK13AxisEqualizer10equalAxisYEv">
+<span id="_CPPv3NK13AxisEqualizer10equalAxisYEv"></span><span id="_CPPv2NK13AxisEqualizer10equalAxisYEv"></span><span id="AxisEqualizer::equalAxisYC"></span><span class="target" id="classAxisEqualizer_1ae3082a091a92cca7b9ce76baac7fe98d"></span><span class="n"><span class="pre">QPointF</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">equalAxisY</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Property accessor for equal y-axis range. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK13AxisEqualizer8plotAreaEv">
+<span id="_CPPv3NK13AxisEqualizer8plotAreaEv"></span><span id="_CPPv2NK13AxisEqualizer8plotAreaEv"></span><span id="AxisEqualizer::plotAreaC"></span><span class="target" id="classAxisEqualizer_1aa83872deb92505b306713df7b4c55aa1"></span><span class="n"><span class="pre">QRectF</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">plotArea</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Property accessor for plot area. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-slots">Public Slots</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N13AxisEqualizer11registerBoxERK7QStringRK7QPointFRK7QPointF">
+<span id="_CPPv3N13AxisEqualizer11registerBoxERK7QStringRK7QPointFRK7QPointF"></span><span id="_CPPv2N13AxisEqualizer11registerBoxERK7QStringRK7QPointFRK7QPointF"></span><span id="AxisEqualizer::registerBox__QStringCR.QPointFCR.QPointFCR"></span><span class="target" id="classAxisEqualizer_1a862338716e9121ae9cc0a7291016f17e"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">registerBox</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">QString</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">seriesName</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">QPointF</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">xR</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">QPointF</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">yR</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13AxisEqualizer11registerBoxERK7QStringRK7QPointFRK7QPointF" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Register x and y ranges for a data series. </p>
+<p>This function registers a data series’ x-range and y-range. These ranges signifies the bounding box of a data series. All registered ranges are used when updating the global bounding box. This function is typically called when the range of a data series changes, and the plotting region potentially needs to be updated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>seriesName</strong> – <strong>[in]</strong> Name of the data series to register or update. </p></li>
+<li><p><strong>xR</strong> – <strong>[in]</strong> x-axis value range. </p></li>
+<li><p><strong>yR</strong> – <strong>[in]</strong> y-axis value range. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N13AxisEqualizer18calculateEqualAxesEv">
+<span id="_CPPv3N13AxisEqualizer18calculateEqualAxesEv"></span><span id="_CPPv2N13AxisEqualizer18calculateEqualAxesEv"></span><span id="AxisEqualizer::calculateEqualAxes"></span><span class="target" id="classAxisEqualizer_1a95ee6289c5d9932ef2a26fd67414e370"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">calculateEqualAxes</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13AxisEqualizer18calculateEqualAxesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Calculates axes scaling to get an equal scaling of axis for the plot area. </p>
+<p>Given the bounding box and plot area, this function calculates axes ranges to ensure that the scaling of each axis is the same. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N13AxisEqualizer19evaluateBoundingBoxEv">
+<span id="_CPPv3N13AxisEqualizer19evaluateBoundingBoxEv"></span><span id="_CPPv2N13AxisEqualizer19evaluateBoundingBoxEv"></span><span id="AxisEqualizer::evaluateBoundingBox"></span><span class="target" id="classAxisEqualizer_1a724965c1c0e04c41ca3a0ec8706650e3"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">evaluateBoundingBox</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13AxisEqualizer19evaluateBoundingBoxEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Evaluate bounding box ranges bboxX bboxY. </p>
+<p>Iterates over all data series that are registered wit <a class="reference internal" href="#classAxisEqualizer_1a862338716e9121ae9cc0a7291016f17e"><span class="std std-ref">registerBox()</span></a> and finds the bounding box that contains all the data series. Conditionally emits bondingBoxChanged(). </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N13AxisEqualizer11setPlotAreaE6QRectF">
+<span id="_CPPv3N13AxisEqualizer11setPlotAreaE6QRectF"></span><span id="_CPPv2N13AxisEqualizer11setPlotAreaE6QRectF"></span><span id="AxisEqualizer::setPlotArea__QRectF"></span><span class="target" id="classAxisEqualizer_1a53b891335e65e14c25deaa14fedfa0d9"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setPlotArea</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">QRectF</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">plotArea</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13AxisEqualizer11setPlotAreaE6QRectF" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Sets the plot area member variable. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>plotArea</strong> – <strong>[in]</strong> Given as a <a class="reference external" href="https://doc.qt.io/qt-5/qrectf.html">QRectF</a>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-signals">Signals</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N13AxisEqualizer18boundingBoxChangedE7QPointF7QPointF">
+<span id="_CPPv3N13AxisEqualizer18boundingBoxChangedE7QPointF7QPointF"></span><span id="_CPPv2N13AxisEqualizer18boundingBoxChangedE7QPointF7QPointF"></span><span id="AxisEqualizer::boundingBoxChanged__QPointF.QPointF"></span><span class="target" id="classAxisEqualizer_1ae89eb5391756cb9c7bfeed4d752af7d0"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">boundingBoxChanged</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">QPointF</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">bboxX</span></span>, <span class="n"><span class="pre">QPointF</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">bboxY</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13AxisEqualizer18boundingBoxChangedE7QPointF7QPointF" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Signal triggered when the bounding box has changed. </p>
+<p>The bounds are ranges for a given axis as a <a class="reference external" href="https://doc.qt.io/qt-5/qpointf.html">QPointF</a>, which x() being minimum, and y() maximum.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bboxX</strong> – <strong>[out]</strong> Range of x-axis. </p></li>
+<li><p><strong>bboxY</strong> – <strong>[out]</strong> Range of y-axis. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N13AxisEqualizer16equalAxisChangedE7QPointF7QPointF">
+<span id="_CPPv3N13AxisEqualizer16equalAxisChangedE7QPointF7QPointF"></span><span id="_CPPv2N13AxisEqualizer16equalAxisChangedE7QPointF7QPointF"></span><span id="AxisEqualizer::equalAxisChanged__QPointF.QPointF"></span><span class="target" id="classAxisEqualizer_1aa86304ba2952fd1645c0ff647f8719f5"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">equalAxisChanged</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">QPointF</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">axisX</span></span>, <span class="n"><span class="pre">QPointF</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">axisY</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13AxisEqualizer16equalAxisChangedE7QPointF7QPointF" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Signal triggered when on of the equal axes ranges have changed. </p>
+<p>The bounds are ranges for a given axis as a <a class="reference external" href="https://doc.qt.io/qt-5/qpointf.html">QPointF</a>, which x() being minimum, and y() maximum.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>axisX</strong> – <strong>[out]</strong> Range of x-axis. </p></li>
+<li><p><strong>axisY</strong> – <strong>[out]</strong> Range of y-axis. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N13AxisEqualizer15plotAreaChangedE6QRectF">
+<span id="_CPPv3N13AxisEqualizer15plotAreaChangedE6QRectF"></span><span id="_CPPv2N13AxisEqualizer15plotAreaChangedE6QRectF"></span><span id="AxisEqualizer::plotAreaChanged__QRectF"></span><span class="target" id="classAxisEqualizer_1a73e3ee259551ee2e90ffa4257d38b5e1"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">plotAreaChanged</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">QRectF</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">plotArea</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13AxisEqualizer15plotAreaChangedE6QRectF" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Signal triggered when the plot area has changed. </p>
+<p>The plot area is given as a <a class="reference external" href="https://doc.qt.io/qt-5/qrectf.html">QRectF</a>. It is typically connected to a chart’s plotArea, such as <a class="reference external" href="https://doc.qt.io/qt-5/qml-qtcharts-chartview.html#plotArea-prop">ChartView::plotArea</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>plotArea</strong> – <strong>[out]</strong> Region within which chart is drawn. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-properties">Properties</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N13AxisEqualizer5bboxXE">
+<span id="_CPPv3N13AxisEqualizer5bboxXE"></span><span id="_CPPv2N13AxisEqualizer5bboxXE"></span><span id="AxisEqualizer::bboxX__QPointF"></span><span class="target" id="classAxisEqualizer_1a3f7018e356b1ae7e22b718ac0c618ae9"></span><span class="n"><span class="pre">QPointF</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bboxX</span></span></span><a class="headerlink" href="#_CPPv4N13AxisEqualizer5bboxXE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Value range of the data points along the x-axis. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N13AxisEqualizer5bboxYE">
+<span id="_CPPv3N13AxisEqualizer5bboxYE"></span><span id="_CPPv2N13AxisEqualizer5bboxYE"></span><span id="AxisEqualizer::bboxY__QPointF"></span><span class="target" id="classAxisEqualizer_1a011c76fd5ce07457cf8ae8595f511e71"></span><span class="n"><span class="pre">QPointF</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bboxY</span></span></span><a class="headerlink" href="#_CPPv4N13AxisEqualizer5bboxYE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Value range of the data points along the y-axis. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N13AxisEqualizer10equalAxisXE">
+<span id="_CPPv3N13AxisEqualizer10equalAxisXE"></span><span id="_CPPv2N13AxisEqualizer10equalAxisXE"></span><span id="AxisEqualizer::equalAxisX__QPointF"></span><span class="target" id="classAxisEqualizer_1a343c3632ce4e45bee2fe20f53ba2323c"></span><span class="n"><span class="pre">QPointF</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">equalAxisX</span></span></span><a class="headerlink" href="#_CPPv4N13AxisEqualizer10equalAxisXE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Value range for an equal axis scaling, x-axis. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N13AxisEqualizer10equalAxisYE">
+<span id="_CPPv3N13AxisEqualizer10equalAxisYE"></span><span id="_CPPv2N13AxisEqualizer10equalAxisYE"></span><span id="AxisEqualizer::equalAxisY__QPointF"></span><span class="target" id="classAxisEqualizer_1ae334a485669da919674b3dab96520540"></span><span class="n"><span class="pre">QPointF</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">equalAxisY</span></span></span><a class="headerlink" href="#_CPPv4N13AxisEqualizer10equalAxisYE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Value range for an equal axis scaling, y-axis. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N13AxisEqualizer8plotAreaE">
+<span id="_CPPv3N13AxisEqualizer8plotAreaE"></span><span id="_CPPv2N13AxisEqualizer8plotAreaE"></span><span id="AxisEqualizer::plotArea__QRectF"></span><span class="target" id="classAxisEqualizer_1a1e6cf2ad189b5ad8a107b3c61a44e271"></span><span class="n"><span class="pre">QRectF</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">plotArea</span></span></span><a class="headerlink" href="#_CPPv4N13AxisEqualizer8plotAreaE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Plot area is a QRectF specifying a drawable region on screen. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-protected-attributes">Protected Attributes</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N13AxisEqualizer8m_rangesE">
+<span id="_CPPv3N13AxisEqualizer8m_rangesE"></span><span id="_CPPv2N13AxisEqualizer8m_rangesE"></span><span id="AxisEqualizer::m_ranges__std::map:QString.std::pair:QPointF.QPointF::"></span><span class="target" id="classAxisEqualizer_1a863ef2fc488ea96471e00c3df537ba26"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">map</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">QString</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">pair</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">QPointF</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">QPointF</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m_ranges</span></span></span><a class="headerlink" href="#_CPPv4N13AxisEqualizer8m_rangesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Data structure to hold value ranges for two axes of a named data series. Set with <a class="reference internal" href="#classAxisEqualizer_1a862338716e9121ae9cc0a7291016f17e"><span class="std std-ref">registerBox()</span></a>. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N13AxisEqualizer6m_bboxE">
+<span id="_CPPv3N13AxisEqualizer6m_bboxE"></span><span id="_CPPv2N13AxisEqualizer6m_bboxE"></span><span id="AxisEqualizer::m_bbox__std::pair:QPointF.QPointF:"></span><span class="target" id="classAxisEqualizer_1aab4155e325d921590d8ec92f572dbb87"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">pair</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">QPointF</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">QPointF</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m_bbox</span></span></span><a class="headerlink" href="#_CPPv4N13AxisEqualizer6m_bboxE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Global bounding box ranges. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N13AxisEqualizer11m_equalAxesE">
+<span id="_CPPv3N13AxisEqualizer11m_equalAxesE"></span><span id="_CPPv2N13AxisEqualizer11m_equalAxesE"></span><span id="AxisEqualizer::m_equalAxes__std::pair:QPointF.QPointF:"></span><span class="target" id="classAxisEqualizer_1aa24551b0b601f0b231b5f75072e7413a"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">pair</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">QPointF</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">QPointF</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m_equalAxes</span></span></span><a class="headerlink" href="#_CPPv4N13AxisEqualizer11m_equalAxesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Equal axes ranges. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N13AxisEqualizer10m_plotAreaE">
+<span id="_CPPv3N13AxisEqualizer10m_plotAreaE"></span><span id="_CPPv2N13AxisEqualizer10m_plotAreaE"></span><span id="AxisEqualizer::m_plotArea__QRectF"></span><span class="target" id="classAxisEqualizer_1ab6207383dd9380e1e5a91c7d9b792099"></span><span class="n"><span class="pre">QRectF</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m_plotArea</span></span></span><a class="headerlink" href="#_CPPv4N13AxisEqualizer10m_plotAreaE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Plot area. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="classDdsBitPublisher.html" class="btn btn-neutral float-right" title="Class DdsBitPublisher" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="structQtToDds.html" class="btn btn-neutral float-left" title="Struct QtToDds" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, SINTEF Ocean.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. <jinja2.runtime.BlockReference object at 0x7f9989cb0f10>
+
+<br /><br />
+<table>
+  <tr>
+    <td width="120" style="vertical-align:middle;text-align:center">
+      <img alt="FHF" style="border-width:0" width="100" src="../_static/FHF-black-txt.png" />
+    </td>
+    <td>
+      This work was funded by <a href="https://www.fhf.no/fhf/about-fhf-english">FHF &ndash; Norwegian Seafood Research Fund</a> with <a href="https://www.fhf.no/prosjekter/prosjektbasen/901350/">Grant No. 901350</a>.<br /><br />
+    </td>
+  </tr>
+  <tr>
+    <td width="90" style="vertical-align:middle;text-align:center">
+      <img alt="GNU General Public License, Version 3.0" style="border-width:0" width="90" src="https://upload.wikimedia.org/wikipedia/commons/9/93/GPLv3_Logo.svg" />
+  </td>
+  <td>
+      This program is free software: you can redistribute it and/or modify
+      it under the terms of the GNU General Public License as published by
+      the Free Software Foundation, either version 3 of the License, or
+      (at your option) any later version.<br /><br />
+
+      This program is distributed in the hope that it will be useful,
+      but WITHOUT ANY WARRANTY; without even the implied warranty of
+      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+      GNU General Public License for more details.<br /><br />
+
+      You should have received a copy of the GNU General Public License
+      along with this program.  If not, see <a rel="license" href="https://www.gnu.org/licenses/">gnu.org/licenses</a>.
+  </td>
+  </tr>
+</table>
+
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

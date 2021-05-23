@@ -1,0 +1,591 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Class DdsBuffer &mdash; sinspekto  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+        <script src="../_static/mathwork.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class DdsCommandPublisher" href="classDdsCommandPublisher.html" />
+    <link rel="prev" title="Class DdsBitSubscriber" href="classDdsBitSubscriber.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #00457c" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> sinspekto
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.4.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../rst/intro.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../rst/intro.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rst/intro.html#usage">Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../rst/intro.html#c-setup">C++ setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rst/intro.html#minimal-qml-example">Minimal QML example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rst/intro.html#integrating-sinspekto-with-qtchart">Integrating sinspekto with QtChart</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../rst/intro.html#implementing-new-sinspekto-components">Implementing new sinspekto components</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../rst/installation.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../rst/installation.html#configuration-options-and-targets">Configuration options and targets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rst/installation.html#linux">Linux</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../rst/installation.html#prerequisites-debian-based">Prerequisites (debian-based)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rst/installation.html#documentation-prerequisites-optional">Documentation prerequisites <em>(optional)</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rst/installation.html#compiling-on-linux">Compiling on Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../rst/installation.html#windows">Windows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../rst/installation.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rst/installation.html#documentation-prerequisites-on-windows-optional">Documentation prerequisites on Windows <em>(optional)</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rst/installation.html#compiling-on-windows">Compiling on Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../rst/installation.html#android">Android</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../rst/installation.html#compiling-for-android">Compiling for Android</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../rst/installation.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="library-api.html">Public API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="library-api.html#class-hierarchy">Class Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="library-api.html#file-hierarchy">File Hierarchy</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="library-api.html#items-listing">Items listing</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="library-api.html#namespaces">Namespaces</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="namespace_fkin.html">Namespace fkin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespace_qml_enums.html">Namespace qml_enums</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespace_ratatosk.html">Namespace ratatosk</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespace_ratatosk__types.html">Namespace ratatosk::types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespace_sinspekto.html">Namespace sinspekto</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespace_weather.html">Namespace weather</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="reference internal" href="library-api.html#classes-and-structs">Classes and Structs</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="structQtToDds.html">Struct QtToDds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classAxisEqualizer.html">Class AxisEqualizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsBitPublisher.html">Class DdsBitPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsBitSubscriber.html">Class DdsBitSubscriber</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Class DdsBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsCommandPublisher.html">Class DdsCommandPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsCommandSubscriber.html">Class DdsCommandSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsDataSource.html">Class DdsDataSource</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsDoubleBuffer.html">Class DdsDoubleBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsDoublePublisher.html">Class DdsDoublePublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsDoubleSubscriber.html">Class DdsDoubleSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec1dBuffer.html">Class DdsIdVec1dBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec1dPublisher.html">Class DdsIdVec1dPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec1dSubscriber.html">Class DdsIdVec1dSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec2dBuffer.html">Class DdsIdVec2dBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec2dPublisher.html">Class DdsIdVec2dPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec2dSubscriber.html">Class DdsIdVec2dSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec3dBuffer.html">Class DdsIdVec3dBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec3dPublisher.html">Class DdsIdVec3dPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec3dSubscriber.html">Class DdsIdVec3dSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec4dBuffer.html">Class DdsIdVec4dBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec4dPublisher.html">Class DdsIdVec4dPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec4dSubscriber.html">Class DdsIdVec4dSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsKinematics2DBuffer.html">Class DdsKinematics2DBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsKinematics2DPublisher.html">Class DdsKinematics2DPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsKinematics2DSubscriber.html">Class DdsKinematics2DSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsKinematics6DBuffer.html">Class DdsKinematics6DBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsKinematics6DPublisher.html">Class DdsKinematics6DPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsKinematics6DSubscriber.html">Class DdsKinematics6DSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsNlpConfigSubscriber.html">Class DdsNlpConfigSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsOptiStatsSubscriber.html">Class DdsOptiStatsSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsStateAutomaton.html">Class DdsStateAutomaton</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsTimepointBuffer.html">Class DdsTimepointBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsWeatherDataSubscriber.html">Class DdsWeatherDataSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskCurrentAtDepthSubscriber.html">Class RatatoskCurrentAtDepthSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskCurrentProfileSubscriber.html">Class RatatoskCurrentProfileSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskDepthInfoSubscriber.html">Class RatatoskDepthInfoSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskDouble2Publisher.html">Class RatatoskDouble2Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskDouble2Subscriber.html">Class RatatoskDouble2Subscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskDouble3Publisher.html">Class RatatoskDouble3Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskDouble3Subscriber.html">Class RatatoskDouble3Subscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskDouble4Publisher.html">Class RatatoskDouble4Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskDouble4Subscriber.html">Class RatatoskDouble4Subscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskDoubleValPublisher.html">Class RatatoskDoubleValPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskDoubleValSubscriber.html">Class RatatoskDoubleValSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskGyroInfoSubscriber.html">Class RatatoskGyroInfoSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskLogInfoSubscriber.html">Class RatatoskLogInfoSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskPosInfoSubscriber.html">Class RatatoskPosInfoSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskWindInfoSubscriber.html">Class RatatoskWindInfoSubscriber</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="library-api.html#enums">Enums</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enum_namespaceqml__enums_1a91a3db16c3322be5b42a537cbf33d61d.html">Enum CommandType</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enum_namespaceqml__enums_1a4100f76c977cffcd7c0e8093cbc434d9.html">Enum DimId</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enum_namespaceqml__enums_1a8d48cdbe8201d9a5d7b02635adfbeb41.html">Enum ProcessStateKind</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="library-api.html#functions">Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="function_namespacesinspekto_1a5eb31c91d17e5c6f0ff46e4113f10215.html">Function sinspekto::generate_hex</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_namespacesinspekto_1a9065a36a0a487427926cfc99c068adcb.html">Function sinspekto::LoadSinspektoQmlTypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_namespacesinspekto_1aa28cae1bd666c474ab29e71cac6203cb.html">Function sinspekto::random_char</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_namespacesinspekto_1ae40a6ffe27e9591f460e5f1021c468a9.html">Function sinspekto::replace_data_points</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_namespacesinspekto_1a80b1550ed2b16a84b7e2a13c956223b7.html">Function sinspekto::replace_double_points</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="library-api.html#typedefs">Typedefs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="typedef_namespacesinspekto_1ab62727382eb24203ba8b49f0c2d98a14.html">Typedef sinspekto::RangeTX</a></li>
+<li class="toctree-l4"><a class="reference internal" href="typedef_namespacesinspekto_1a2c75aecc73fe2475517a40e817b8d235.html">Typedef sinspekto::RangeXY</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api_private/library-api-private.html">Private API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api_private/library-api-private.html#class-hierarchy">Class Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_private/library-api-private.html#file-hierarchy">File Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_private/library-api-private.html#items-listing">Items listing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api_private/library-api-private.html#namespaces">Namespaces</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/namespace_fkin__Dds.html">Namespace fkin::Dds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/namespace_QtToDds.html">Namespace QtToDds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/namespace_sinspekto.html">Namespace sinspekto</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api_private/library-api-private.html#classes-and-structs">Classes and Structs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/structQtToDds_1_1Dds.html">Struct Dds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/structsinspekto_1_1Reader.html">Template Struct Reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/structsinspekto_1_1Writer.html">Template Struct Writer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/classchart__example.html">Class chart_example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/classminimal__example.html">Class minimal_example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/classsinspekto_1_1DdsReaderListener.html">Template Class DdsReaderListener</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">sinspekto</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="library-api.html">Public API</a> &raquo;</li>
+        
+      <li>Class DdsBuffer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="classDdsCommandPublisher.html" class="btn btn-neutral float-right" title="Class DdsCommandPublisher" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+      
+      
+        <a href="classDdsBitSubscriber.html" class="btn btn-neutral float-left" title="Class DdsBitSubscriber" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-ddsbuffer">
+<span id="exhale-class-classddsbuffer"></span><h1>Class DdsBuffer<a class="headerlink" href="#class-ddsbuffer" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_sinspekto_DdsBuffer.hpp.html#file-sinspekto-ddsbuffer-hpp"><span class="std std-ref">File DdsBuffer.hpp</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">QObject</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="derived-types">
+<h3>Derived Types<a class="headerlink" href="#derived-types" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">DdsIdVec1dBuffer</span></code> (<a class="reference internal" href="classDdsIdVec1dBuffer.html#exhale-class-classddsidvec1dbuffer"><span class="std std-ref">Class DdsIdVec1dBuffer</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">DdsIdVec2dBuffer</span></code> (<a class="reference internal" href="classDdsIdVec2dBuffer.html#exhale-class-classddsidvec2dbuffer"><span class="std std-ref">Class DdsIdVec2dBuffer</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">DdsIdVec3dBuffer</span></code> (<a class="reference internal" href="classDdsIdVec3dBuffer.html#exhale-class-classddsidvec3dbuffer"><span class="std std-ref">Class DdsIdVec3dBuffer</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">DdsIdVec4dBuffer</span></code> (<a class="reference internal" href="classDdsIdVec4dBuffer.html#exhale-class-classddsidvec4dbuffer"><span class="std std-ref">Class DdsIdVec4dBuffer</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">DdsKinematics2DBuffer</span></code> (<a class="reference internal" href="classDdsKinematics2DBuffer.html#exhale-class-classddskinematics2dbuffer"><span class="std std-ref">Class DdsKinematics2DBuffer</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">DdsKinematics6DBuffer</span></code> (<a class="reference internal" href="classDdsKinematics6DBuffer.html#exhale-class-classddskinematics6dbuffer"><span class="std std-ref">Class DdsKinematics6DBuffer</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv49DdsBuffer">
+<span id="_CPPv39DdsBuffer"></span><span id="_CPPv29DdsBuffer"></span><span id="DdsBuffer"></span><span class="target" id="classDdsBuffer"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DdsBuffer</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">QObject</span></span><a class="headerlink" href="#_CPPv49DdsBuffer" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Buffer class for holding data in QtChart compatible data structures. </p>
+<p>This class has a virtual slot function <a class="reference internal" href="#classDdsBuffer_1a5c4a658ca7d5bad42f0cb2fccdbd709a"><span class="std std-ref">updateBuffers()</span></a> that needs to be defined in the derived class. </p>
+<p>Subclassed by <a class="reference internal" href="classDdsIdVec1dBuffer.html#classDdsIdVec1dBuffer"><span class="std std-ref">DdsIdVec1dBuffer</span></a>, <a class="reference internal" href="classDdsIdVec2dBuffer.html#classDdsIdVec2dBuffer"><span class="std std-ref">DdsIdVec2dBuffer</span></a>, <a class="reference internal" href="classDdsIdVec3dBuffer.html#classDdsIdVec3dBuffer"><span class="std std-ref">DdsIdVec3dBuffer</span></a>, <a class="reference internal" href="classDdsIdVec4dBuffer.html#classDdsIdVec4dBuffer"><span class="std std-ref">DdsIdVec4dBuffer</span></a>, <a class="reference internal" href="classDdsKinematics2DBuffer.html#classDdsKinematics2DBuffer"><span class="std std-ref">DdsKinematics2DBuffer</span></a>, <a class="reference internal" href="classDdsKinematics6DBuffer.html#classDdsKinematics6DBuffer"><span class="std std-ref">DdsKinematics6DBuffer</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9DdsBuffer9DdsBufferEP7QObject">
+<span id="_CPPv3N9DdsBuffer9DdsBufferEP7QObject"></span><span id="_CPPv2N9DdsBuffer9DdsBufferEP7QObject"></span><span id="DdsBuffer::DdsBuffer__QObjectP"></span><span class="target" id="classDdsBuffer_1a9a076d12908cb406be8a1b02cc2d27df"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DdsBuffer</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">QObject</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">parent</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9DdsBuffer9DdsBufferEP7QObject" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+<p>The initialization is deferred to an <a class="reference internal" href="#classDdsBuffer_1ab16f03f060741524754735f285be6736"><span class="std std-ref">init()</span></a> function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>parent</strong> – <strong>[in]</strong> QObject pointer. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9DdsBufferD0Ev">
+<span id="_CPPv3N9DdsBufferD0Ev"></span><span id="_CPPv2N9DdsBufferD0Ev"></span><span id="DdsBuffer::~DdsBuffer"></span><span class="target" id="classDdsBuffer_1a067f485e2c405d2bea939b1a3decb6d1"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~DdsBuffer</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9DdsBufferD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Destructor. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9DdsBuffer9rangeTminEv">
+<span id="_CPPv3NK9DdsBuffer9rangeTminEv"></span><span id="_CPPv2NK9DdsBuffer9rangeTminEv"></span><span id="DdsBuffer::rangeTminC"></span><span class="target" id="classDdsBuffer_1ab7c681ebd6d0f8861af5391f7896311b"></span><span class="n"><span class="pre">QDateTime</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rangeTmin</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Access function for minimum time point in buffer as QML property. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9DdsBuffer9rangeTmaxEv">
+<span id="_CPPv3NK9DdsBuffer9rangeTmaxEv"></span><span id="_CPPv2NK9DdsBuffer9rangeTmaxEv"></span><span id="DdsBuffer::rangeTmaxC"></span><span class="target" id="classDdsBuffer_1a3ee4334b4a8385090f9b8874339351c2"></span><span class="n"><span class="pre">QDateTime</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rangeTmax</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Access function for maximal time point in buffer as QML property. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-slots">Public Slots</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9DdsBuffer12updateSeriesEP15QAbstractSeriesN9qml_enums5DimIdEN9qml_enums5DimIdE">
+<span id="_CPPv3N9DdsBuffer12updateSeriesEP15QAbstractSeriesN9qml_enums5DimIdEN9qml_enums5DimIdE"></span><span id="_CPPv2N9DdsBuffer12updateSeriesEP15QAbstractSeriesN9qml_enums5DimIdEN9qml_enums5DimIdE"></span><span id="DdsBuffer::updateSeries__QAbstractSeriesP.qml_enums::DimId.qml_enums::DimId"></span><span class="target" id="classDdsBuffer_1a6533a948e129036751cd26d50eadfa69"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">updateSeries</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">QAbstractSeries</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">series</span></span>, <span class="n"><span class="pre">qml_enums</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="enum_namespaceqml__enums_1a4100f76c977cffcd7c0e8093cbc434d9.html#_CPPv4N9qml_enums5DimIdE" title="qml_enums::DimId"><span class="n"><span class="pre">DimId</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">xDim</span></span>, <span class="n"><span class="pre">qml_enums</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="enum_namespaceqml__enums_1a4100f76c977cffcd7c0e8093cbc434d9.html#_CPPv4N9qml_enums5DimIdE" title="qml_enums::DimId"><span class="n"><span class="pre">DimId</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">yDim</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9DdsBuffer12updateSeriesEP15QAbstractSeriesN9qml_enums5DimIdEN9qml_enums5DimIdE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Updates a QAbstractSeries with the data currently in the buffer. </p>
+<p>This slots updates the input data series structure with the data in the buffers held by this class. It calls either <a class="reference internal" href="function_namespacesinspekto_1ae40a6ffe27e9591f460e5f1021c468a9.html#namespacesinspekto_1ae40a6ffe27e9591f460e5f1021c468a9"><span class="std std-ref">replace_data_points()</span></a> and <a class="reference internal" href="function_namespacesinspekto_1a80b1550ed2b16a84b7e2a13c956223b7.html#namespacesinspekto_1a80b1550ed2b16a84b7e2a13c956223b7"><span class="std std-ref">replace_double_points()</span></a> depending on the dimension type. The buffer member variable can hold several buffers, and are fetched using a specific DimId enum. This enables indexing in QML scripting using e.g. <code class="docutils literal notranslate"><span class="pre">Fkin.Course</span></code>, instead of integer indexing.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>yDim cannot be a time axis, that is, not DimId::T.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>series</strong> – <strong>[inout]</strong> Pointer to series to be updated. </p></li>
+<li><p><strong>xDim</strong> – <strong>[in]</strong> First dimension identifier. </p></li>
+<li><p><strong>yDim</strong> – <strong>[in]</strong> Second dimension identifier. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9DdsBuffer13updateBuffersEv">
+<span id="_CPPv3N9DdsBuffer13updateBuffersEv"></span><span id="_CPPv2N9DdsBuffer13updateBuffersEv"></span><span id="DdsBuffer::updateBuffers"></span><span class="target" id="classDdsBuffer_1a5c4a658ca7d5bad42f0cb2fccdbd709a"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">updateBuffers</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N9DdsBuffer13updateBuffersEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A function that should update the buffers with new data. </p>
+<p>A possible use case would be to read data from a DDS topic and add them to appropriately mapped buffers in this class.</p>
+<p>For example a Vec2d DDS type would append three buffers for each sample, two in the mapped buffer (DimId::X, DimId::Y) and one for time point. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9DdsBuffer12clearBuffersEv">
+<span id="_CPPv3N9DdsBuffer12clearBuffersEv"></span><span id="_CPPv2N9DdsBuffer12clearBuffersEv"></span><span id="DdsBuffer::clearBuffers"></span><span class="target" id="classDdsBuffer_1a7a70aadfdf5fe58acb8e9ffa949e2962"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">clearBuffers</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9DdsBuffer12clearBuffersEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Clears all buffers. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9DdsBuffer4initEi">
+<span id="_CPPv3N9DdsBuffer4initEi"></span><span id="_CPPv2N9DdsBuffer4initEi"></span><span id="DdsBuffer::init__i"></span><span class="target" id="classDdsBuffer_1ab16f03f060741524754735f285be6736"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">init</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">buffer_size</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9DdsBuffer4initEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Initialize buffer and connect signals and slots for the time range properties. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buffer_size</strong> – <strong>[in]</strong> Set capacity of <a class="reference internal" href="classDdsTimepointBuffer.html#classDdsTimepointBuffer"><span class="std std-ref">DdsTimepointBuffer</span></a> </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-signals">Signals</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9DdsBuffer16rangeTminChangedE9QDateTime">
+<span id="_CPPv3N9DdsBuffer16rangeTminChangedE9QDateTime"></span><span id="_CPPv2N9DdsBuffer16rangeTminChangedE9QDateTime"></span><span id="DdsBuffer::rangeTminChanged__QDateTime"></span><span class="target" id="classDdsBuffer_1a0c2c0356d02bd8b11092230feb66cd08"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rangeTminChanged</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">QDateTime</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">min</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9DdsBuffer16rangeTminChangedE9QDateTime" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Signal to indicate that minimum time point has changed. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>min</strong> – <strong>[out]</strong> Minimum time point as a QDateTime. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9DdsBuffer16rangeTmaxChangedE9QDateTime">
+<span id="_CPPv3N9DdsBuffer16rangeTmaxChangedE9QDateTime"></span><span id="_CPPv2N9DdsBuffer16rangeTmaxChangedE9QDateTime"></span><span id="DdsBuffer::rangeTmaxChanged__QDateTime"></span><span class="target" id="classDdsBuffer_1aaf64f61154db362e9d1e27fa24001750"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rangeTmaxChanged</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">QDateTime</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">max</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9DdsBuffer16rangeTmaxChangedE9QDateTime" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Signal to indicate that maximum time point has changed. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>max</strong> – <strong>[out]</strong> Maximum time point as a QDateTime. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9DdsBuffer13rangeTChangedEv">
+<span id="_CPPv3N9DdsBuffer13rangeTChangedEv"></span><span id="_CPPv2N9DdsBuffer13rangeTChangedEv"></span><span id="DdsBuffer::rangeTChanged"></span><span class="target" id="classDdsBuffer_1ab71705d81654666ccc9fa0d84dabbdfb"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rangeTChanged</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9DdsBuffer13rangeTChangedEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Signal to indicate that time range has changed. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-properties">Properties</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N9DdsBuffer9rangeTminE">
+<span id="_CPPv3N9DdsBuffer9rangeTminE"></span><span id="_CPPv2N9DdsBuffer9rangeTminE"></span><span id="DdsBuffer::rangeTmin__QDateTime"></span><span class="target" id="classDdsBuffer_1a68e76166e7b32632ee5fb9bc1ec24de0"></span><span class="n"><span class="pre">QDateTime</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rangeTmin</span></span></span><a class="headerlink" href="#_CPPv4N9DdsBuffer9rangeTminE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Minimum time point in buffer. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N9DdsBuffer9rangeTmaxE">
+<span id="_CPPv3N9DdsBuffer9rangeTmaxE"></span><span id="_CPPv2N9DdsBuffer9rangeTmaxE"></span><span id="DdsBuffer::rangeTmax__QDateTime"></span><span class="target" id="classDdsBuffer_1ae0db194c67d80f6647523033638e4ca0"></span><span class="n"><span class="pre">QDateTime</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rangeTmax</span></span></span><a class="headerlink" href="#_CPPv4N9DdsBuffer9rangeTmaxE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Maximal time point in buffer. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-protected-attributes">Protected Attributes</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N9DdsBuffer9m_buffersE">
+<span id="_CPPv3N9DdsBuffer9m_buffersE"></span><span id="_CPPv2N9DdsBuffer9m_buffersE"></span><span id="DdsBuffer::m_buffers__std::map:qml_enums::DimId.DdsDoubleBufferP:"></span><span class="target" id="classDdsBuffer_1a7a2e7522c45ad0bb6efb26966e65d865"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">map</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">qml_enums</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="enum_namespaceqml__enums_1a4100f76c977cffcd7c0e8093cbc434d9.html#_CPPv4N9qml_enums5DimIdE" title="qml_enums::DimId"><span class="n"><span class="pre">DimId</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="classDdsDoubleBuffer.html#_CPPv415DdsDoubleBuffer" title="DdsDoubleBuffer"><span class="n"><span class="pre">DdsDoubleBuffer</span></span></a><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m_buffers</span></span></span><a class="headerlink" href="#_CPPv4N9DdsBuffer9m_buffersE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A map of buffers, key is DimId, value is <a class="reference internal" href="classDdsDoubleBuffer.html#classDdsDoubleBuffer"><span class="std std-ref">DdsDoubleBuffer</span></a>. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N9DdsBuffer6m_timeE">
+<span id="_CPPv3N9DdsBuffer6m_timeE"></span><span id="_CPPv2N9DdsBuffer6m_timeE"></span><span id="DdsBuffer::m_time__DdsTimepointBufferP"></span><span class="target" id="classDdsBuffer_1a9eea2eaa2e29612bae1ec9fab59e65a7"></span><a class="reference internal" href="classDdsTimepointBuffer.html#_CPPv418DdsTimepointBuffer" title="DdsTimepointBuffer"><span class="n"><span class="pre">DdsTimepointBuffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">m_time</span></span></span><a class="headerlink" href="#_CPPv4N9DdsBuffer6m_timeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Pointer to time point buffer. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="classDdsCommandPublisher.html" class="btn btn-neutral float-right" title="Class DdsCommandPublisher" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="classDdsBitSubscriber.html" class="btn btn-neutral float-left" title="Class DdsBitSubscriber" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, SINTEF Ocean.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. <jinja2.runtime.BlockReference object at 0x7f9989eca450>
+
+<br /><br />
+<table>
+  <tr>
+    <td width="120" style="vertical-align:middle;text-align:center">
+      <img alt="FHF" style="border-width:0" width="100" src="../_static/FHF-black-txt.png" />
+    </td>
+    <td>
+      This work was funded by <a href="https://www.fhf.no/fhf/about-fhf-english">FHF &ndash; Norwegian Seafood Research Fund</a> with <a href="https://www.fhf.no/prosjekter/prosjektbasen/901350/">Grant No. 901350</a>.<br /><br />
+    </td>
+  </tr>
+  <tr>
+    <td width="90" style="vertical-align:middle;text-align:center">
+      <img alt="GNU General Public License, Version 3.0" style="border-width:0" width="90" src="https://upload.wikimedia.org/wikipedia/commons/9/93/GPLv3_Logo.svg" />
+  </td>
+  <td>
+      This program is free software: you can redistribute it and/or modify
+      it under the terms of the GNU General Public License as published by
+      the Free Software Foundation, either version 3 of the License, or
+      (at your option) any later version.<br /><br />
+
+      This program is distributed in the hope that it will be useful,
+      but WITHOUT ANY WARRANTY; without even the implied warranty of
+      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+      GNU General Public License for more details.<br /><br />
+
+      You should have received a copy of the GNU General Public License
+      along with this program.  If not, see <a rel="license" href="https://www.gnu.org/licenses/">gnu.org/licenses</a>.
+  </td>
+  </tr>
+</table>
+
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,655 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Getting started &mdash; sinspekto  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+        <script src="../_static/mathwork.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Public API" href="../api/library-api.html" />
+    <link rel="prev" title="Introduction" href="intro.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #00457c" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> sinspekto
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.4.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#usage">Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="intro.html#c-setup">C++ setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="intro.html#minimal-qml-example">Minimal QML example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="intro.html#integrating-sinspekto-with-qtchart">Integrating sinspekto with QtChart</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#implementing-new-sinspekto-components">Implementing new sinspekto components</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Getting started</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-options-and-targets">Configuration options and targets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#linux">Linux</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisites-debian-based">Prerequisites (debian-based)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#documentation-prerequisites-optional">Documentation prerequisites <em>(optional)</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compiling-on-linux">Compiling on Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#windows">Windows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#documentation-prerequisites-on-windows-optional">Documentation prerequisites on Windows <em>(optional)</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compiling-on-windows">Compiling on Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#android">Android</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#compiling-for-android">Compiling for Android</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/library-api.html">Public API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/library-api.html#class-hierarchy">Class Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/library-api.html#file-hierarchy">File Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/library-api.html#items-listing">Items listing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/library-api.html#namespaces">Namespaces</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/namespace_fkin.html">Namespace fkin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/namespace_qml_enums.html">Namespace qml_enums</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/namespace_ratatosk.html">Namespace ratatosk</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/namespace_ratatosk__types.html">Namespace ratatosk::types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/namespace_sinspekto.html">Namespace sinspekto</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/namespace_weather.html">Namespace weather</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/library-api.html#classes-and-structs">Classes and Structs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/structQtToDds.html">Struct QtToDds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classAxisEqualizer.html">Class AxisEqualizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsBitPublisher.html">Class DdsBitPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsBitSubscriber.html">Class DdsBitSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsBuffer.html">Class DdsBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsCommandPublisher.html">Class DdsCommandPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsCommandSubscriber.html">Class DdsCommandSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsDataSource.html">Class DdsDataSource</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsDoubleBuffer.html">Class DdsDoubleBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsDoublePublisher.html">Class DdsDoublePublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsDoubleSubscriber.html">Class DdsDoubleSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsIdVec1dBuffer.html">Class DdsIdVec1dBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsIdVec1dPublisher.html">Class DdsIdVec1dPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsIdVec1dSubscriber.html">Class DdsIdVec1dSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsIdVec2dBuffer.html">Class DdsIdVec2dBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsIdVec2dPublisher.html">Class DdsIdVec2dPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsIdVec2dSubscriber.html">Class DdsIdVec2dSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsIdVec3dBuffer.html">Class DdsIdVec3dBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsIdVec3dPublisher.html">Class DdsIdVec3dPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsIdVec3dSubscriber.html">Class DdsIdVec3dSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsIdVec4dBuffer.html">Class DdsIdVec4dBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsIdVec4dPublisher.html">Class DdsIdVec4dPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsIdVec4dSubscriber.html">Class DdsIdVec4dSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsKinematics2DBuffer.html">Class DdsKinematics2DBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsKinematics2DPublisher.html">Class DdsKinematics2DPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsKinematics2DSubscriber.html">Class DdsKinematics2DSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsKinematics6DBuffer.html">Class DdsKinematics6DBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsKinematics6DPublisher.html">Class DdsKinematics6DPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsKinematics6DSubscriber.html">Class DdsKinematics6DSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsNlpConfigSubscriber.html">Class DdsNlpConfigSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsOptiStatsSubscriber.html">Class DdsOptiStatsSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsStateAutomaton.html">Class DdsStateAutomaton</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsTimepointBuffer.html">Class DdsTimepointBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsWeatherDataSubscriber.html">Class DdsWeatherDataSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classRatatoskCurrentAtDepthSubscriber.html">Class RatatoskCurrentAtDepthSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classRatatoskCurrentProfileSubscriber.html">Class RatatoskCurrentProfileSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classRatatoskDepthInfoSubscriber.html">Class RatatoskDepthInfoSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classRatatoskDouble2Publisher.html">Class RatatoskDouble2Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classRatatoskDouble2Subscriber.html">Class RatatoskDouble2Subscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classRatatoskDouble3Publisher.html">Class RatatoskDouble3Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classRatatoskDouble3Subscriber.html">Class RatatoskDouble3Subscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classRatatoskDouble4Publisher.html">Class RatatoskDouble4Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classRatatoskDouble4Subscriber.html">Class RatatoskDouble4Subscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classRatatoskDoubleValPublisher.html">Class RatatoskDoubleValPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classRatatoskDoubleValSubscriber.html">Class RatatoskDoubleValSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classRatatoskGyroInfoSubscriber.html">Class RatatoskGyroInfoSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classRatatoskLogInfoSubscriber.html">Class RatatoskLogInfoSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classRatatoskPosInfoSubscriber.html">Class RatatoskPosInfoSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classRatatoskWindInfoSubscriber.html">Class RatatoskWindInfoSubscriber</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/library-api.html#enums">Enums</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/enum_namespaceqml__enums_1a91a3db16c3322be5b42a537cbf33d61d.html">Enum CommandType</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/enum_namespaceqml__enums_1a4100f76c977cffcd7c0e8093cbc434d9.html">Enum DimId</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/enum_namespaceqml__enums_1a8d48cdbe8201d9a5d7b02635adfbeb41.html">Enum ProcessStateKind</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/library-api.html#functions">Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/function_namespacesinspekto_1a5eb31c91d17e5c6f0ff46e4113f10215.html">Function sinspekto::generate_hex</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/function_namespacesinspekto_1a9065a36a0a487427926cfc99c068adcb.html">Function sinspekto::LoadSinspektoQmlTypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/function_namespacesinspekto_1aa28cae1bd666c474ab29e71cac6203cb.html">Function sinspekto::random_char</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/function_namespacesinspekto_1ae40a6ffe27e9591f460e5f1021c468a9.html">Function sinspekto::replace_data_points</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/function_namespacesinspekto_1a80b1550ed2b16a84b7e2a13c956223b7.html">Function sinspekto::replace_double_points</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/library-api.html#typedefs">Typedefs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/typedef_namespacesinspekto_1ab62727382eb24203ba8b49f0c2d98a14.html">Typedef sinspekto::RangeTX</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/typedef_namespacesinspekto_1a2c75aecc73fe2475517a40e817b8d235.html">Typedef sinspekto::RangeXY</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api_private/library-api-private.html">Private API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api_private/library-api-private.html#class-hierarchy">Class Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_private/library-api-private.html#file-hierarchy">File Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_private/library-api-private.html#items-listing">Items listing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api_private/library-api-private.html#namespaces">Namespaces</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/namespace_fkin__Dds.html">Namespace fkin::Dds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/namespace_QtToDds.html">Namespace QtToDds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/namespace_sinspekto.html">Namespace sinspekto</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api_private/library-api-private.html#classes-and-structs">Classes and Structs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/structQtToDds_1_1Dds.html">Struct Dds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/structsinspekto_1_1Reader.html">Template Struct Reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/structsinspekto_1_1Writer.html">Template Struct Writer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/classchart__example.html">Class chart_example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/classminimal__example.html">Class minimal_example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/classsinspekto_1_1DdsReaderListener.html">Template Class DdsReaderListener</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">sinspekto</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Getting started</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="../api/library-api.html" class="btn btn-neutral float-right" title="Public API" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+      
+      
+        <a href="intro.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-started">
+<h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<p>You need a compiler that supports <em>c++17</em> to build <code class="docutils literal notranslate"><span class="pre">sinspekto</span></code>. It is known to compile
+with <code class="docutils literal notranslate"><span class="pre">gcc</span> <span class="pre">8</span></code>, <code class="docutils literal notranslate"><span class="pre">clang</span> <span class="pre">9</span></code>, and <code class="docutils literal notranslate"><span class="pre">msvc++</span> <span class="pre">14.2</span></code>. You need the <a class="reference external" href="https://cmake.org/">CMake</a> build system
+generator. <code class="docutils literal notranslate"><span class="pre">sinspekto</span></code> requires <a class="reference external" href="https://sintef-ocean.github.io/ratatoskidl">RatatoskIDL</a>, <a class="reference external" href="https://github.com/ADLINK-IST/opensplice">opensplice-ce</a>, <a class="reference external" href="https://www.qt.io/">Qt</a> and uses <code class="docutils literal notranslate"><span class="pre">boost</span></code>
+<a class="reference external" href="https://www.boost.org/doc/libs/1_70_0/doc/html/circular_buffer.html">circular buffer</a> to build.</p>
+<p>The <strong>recommended</strong> approach to use the library is with the help of <a class="reference external" href="https://conan.io/">conan</a>. <code class="docutils literal notranslate"><span class="pre">conan</span></code> is
+a python tool, and once installed, you need to set the following conan remotes.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m pip install conan
+conan remote add sintef https://conan.sintef.io/public
+conan remote add bincrafters https://bincrafters.jfrog.io/artifactory/api/conan/public-conan
+conan config <span class="nb">set</span> general.revisions_enabled<span class="o">=</span><span class="m">1</span>
+</pre></div>
+</div>
+<p>If your project uses <code class="docutils literal notranslate"><span class="pre">conan</span></code> and <code class="docutils literal notranslate"><span class="pre">CMake</span></code>, you can add the following to your
+<a class="reference external" href="https://docs.conan.io/en/latest/reference/conanfile_txt.html">conanfile.txt</a> and CMakeLists.txt, respectively:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[requires]</span>
+<span class="na">sinspekto/[&gt;</span><span class="o">=</span><span class="s">0.4.0]@sintef/stable</span>
+<span class="na">qt/5.15.2@bincrafters/stable</span>
+
+<span class="k">[generators]</span>
+<span class="na">cmake_paths</span>
+<span class="na">cmake_find_package</span>
+<span class="na">cmake</span>
+<span class="na">virtualenv</span>
+<span class="na">virtualrunenv</span>
+</pre></div>
+</div>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">include</span><span class="p">(</span><span class="o">${</span><span class="nv">CMAKE_BINARY_DIR</span><span class="o">}</span><span class="s">/conanbuildinfo.cmake</span><span class="p">)</span>
+<span class="nb">conan_basic_setup</span><span class="p">()</span>
+<span class="nb">include</span><span class="p">(</span><span class="o">${</span><span class="nv">CMAKE_BINARY_DIR</span><span class="o">}</span><span class="s">/conan_paths.cmake</span><span class="p">)</span>
+
+<span class="nb">find_package</span><span class="p">(</span><span class="s">sinspekto</span> <span class="s">CONFIG</span> <span class="s">REQUIRED</span><span class="p">)</span>
+<span class="c">#... add_executable</span>
+<span class="nb">target_link_executable</span><span class="p">(</span><span class="s">App</span>
+  <span class="c"># other dependencies</span>
+  <span class="s">sinspekto::sinspekto</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Building the documentation is <em>optional</em>. It is generated using <code class="docutils literal notranslate"><span class="pre">doxygen</span></code>, <code class="docutils literal notranslate"><span class="pre">sphinx</span></code>,
+<code class="docutils literal notranslate"><span class="pre">emacs</span></code>, and <code class="docutils literal notranslate"><span class="pre">plantuml</span></code>. You also need the following python modules
+(<code class="docutils literal notranslate"><span class="pre">docs/requirements.txt</span></code>):</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">breathe</span>
+<span class="na">Sphinx &gt;</span><span class="o">=</span> <span class="s">4.0.0</span>
+<span class="na">doxyqml</span>
+<span class="na">exhale</span>
+<span class="na">sphinx-rtd-theme</span>
+<span class="na">sphinxcontrib-plantuml</span>
+<span class="na">sphinxcontrib-svg2pdfconverter</span>
+<span class="na">doc2dash</span>
+</pre></div>
+</div>
+<p>Instructions for each platform is found below.</p>
+<div class="section" id="configuration-options-and-targets">
+<h2>Configuration options and targets<a class="headerlink" href="#configuration-options-and-targets" title="Permalink to this headline">¶</a></h2>
+<p>The table below specifies library options.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 22%" />
+<col style="width: 11%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>CMake Option</p></th>
+<th class="head"><p>conan option</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Comment</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">WITH_DOC</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">with_doc</span></code></p></td>
+<td><p>False</p></td>
+<td><p>Use <code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">--build</span> <span class="pre">.</span> <span class="pre">--target</span> <span class="pre">doc</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">WITH_EXAMPLES</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">with_examples</span></code></p></td>
+<td><p>False</p></td>
+<td><p>Not available for Android</p></td>
+</tr>
+</tbody>
+</table>
+<p>In addition to the <code class="docutils literal notranslate"><span class="pre">doc</span></code> target, <code class="docutils literal notranslate"><span class="pre">package_it</span></code> will create <code class="docutils literal notranslate"><span class="pre">.deb</span></code> and <code class="docutils literal notranslate"><span class="pre">.tar.gz</span></code> packages
+of the library. If the library is built without <code class="docutils literal notranslate"><span class="pre">conan</span></code>, the Debian packages will
+contain dependencies to system packages (and <code class="docutils literal notranslate"><span class="pre">opensplice-ce</span></code>, which is non-standard).</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To list all build targets (linux): <code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">--build</span> <span class="pre">.</span> <span class="pre">--target</span> <span class="pre">help</span></code></p>
+</div>
+</div>
+<div class="section" id="linux">
+<h2>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="prerequisites-debian-based">
+<h3>Prerequisites (debian-based)<a class="headerlink" href="#prerequisites-debian-based" title="Permalink to this headline">¶</a></h3>
+<p>These instructions assume a <code class="docutils literal notranslate"><span class="pre">gcc</span></code> compiler and using <code class="docutils literal notranslate"><span class="pre">conan</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>apt-get install -y build-essential cmake pkg-config python3-pip
+python -m pip install setuptools wheel conan
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There may be other (unknown) packages needed by transitive dependencies, which are
+not installed by conan. You may either install them manually, or you can set
+environment variable <a class="reference external" href="https://docs.conan.io/en/latest/reference/env_vars.html#conan-sysrequires-mode">CONAN SYSREQUIRES MODE=enabled</a></p>
+</div>
+</div>
+<div class="section" id="documentation-prerequisites-optional">
+<h3>Documentation prerequisites <em>(optional)</em><a class="headerlink" href="#documentation-prerequisites-optional" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>apt-get install -y doxygen emacs-nox graphviz plantuml wget
+python -m pip install -r docs/requirements.txt --upgrade
+emacs -Q --batch -l docs/emacs-install-pkgs.el
+</pre></div>
+</div>
+<p>If your distribution is a bit old, you may have to update <code class="docutils literal notranslate"><span class="pre">plantuml</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget https://sourceforge.net/projects/plantuml/files/plantuml.jar
+mv plantuml.jar /usr/share/plantuml/
+</pre></div>
+</div>
+</div>
+<div class="section" id="compiling-on-linux">
+<h3>Compiling on Linux<a class="headerlink" href="#compiling-on-linux" title="Permalink to this headline">¶</a></h3>
+<p>We compile with examples and documentation.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir build <span class="o">&amp;&amp;</span> <span class="nb">cd</span> build
+conan install .. --build missing -o sinspekto:with_examples<span class="o">=</span>True
+cmake -D <span class="nv">WITH_EXAMPLES</span><span class="o">=</span>ON -D <span class="nv">WITH_DOC</span><span class="o">=</span>ON ..
+cmake --build . --parallel <span class="m">4</span>
+cmake --build . --target doc
+</pre></div>
+</div>
+<p>To run one of the example applications:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>. activate.sh     <span class="c1"># Opensplice environment variables</span>
+. activate_run.sh <span class="c1"># Dynamic libraries added to LD_LIBRARY_PATH</span>
+bin/sinspekto-app
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="windows">
+<h2>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h3>
+<p>Prerequisites using <code class="docutils literal notranslate"><span class="pre">conan</span></code>. Most commands expect you to run with elevated privileges.
+We make use of <a class="reference external" href="https://chocolatey.org/">chocolatey</a> package manager for windows:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>powershell -Command Set-ExecutionPolicy Bypass -Scope Process -Force<span class="p">;</span> <span class="se">\</span>
+  <span class="o">[</span>System.Net.ServicePointManager<span class="o">]</span>::SecurityProtocol <span class="o">=</span> <span class="se">\</span>
+  <span class="o">[</span>System.Net.ServicePointManager<span class="o">]</span>::SecurityProtocol -bor <span class="m">3072</span><span class="p">;</span> <span class="se">\</span>
+  iex <span class="o">((</span>New-Object System.Net.WebClient<span class="o">)</span>.DownloadString<span class="o">(</span> <span class="se">\</span>
+  <span class="s1">&#39;https://chocolatey.org/install.ps1&#39;</span><span class="o">))</span>
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>choco install -y python3 Wget
+choco install -y cmake --installargs <span class="s1">&#39;&quot;ADD_CMAKE_TO_PATH=System&quot;&#39;</span>
+choco install -y git.install --params <span class="s2">&quot;/GitAndUnixToolsOnPath&quot;</span>
+python -m pip install setuptools wheel conan win-unicode-console
+</pre></div>
+</div>
+<p>Microsoft Visual Studio build tools if they are not already installed.
+These commands must to be run with <code class="docutils literal notranslate"><span class="pre">cmd.exe</span></code>.
+<strong>Note</strong> that the <code class="docutils literal notranslate"><span class="pre">vs_buildtools.exe</span></code> will run in the background.
+These steps are not necessary if you have Visual Studio with C++ compilers installed.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir C:<span class="se">\T</span>EMP <span class="o">&amp;&amp;</span> <span class="nb">cd</span> C:<span class="se">\T</span>EMP
+wget https://aka.ms/vs/16/release/vs_buildtools.exe
+vs_buildtools.exe --quiet --norestart --wait --nocache <span class="se">\</span>
+  --installPath C:<span class="se">\B</span>uildTools <span class="se">\</span>
+  --add Microsoft.VisualStudio.Workload.MSBuildTools <span class="se">\</span>
+  --add Microsoft.VisualStudio.Workload.VCTools --includeRecommended
+setx path <span class="s2">&quot;%path%;C:\BuildTools\Common7\Tools&quot;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You may need to start new command window sessions between commands to load the new PATH variables.</p>
+</div>
+</div>
+<div class="section" id="documentation-prerequisites-on-windows-optional">
+<h3>Documentation prerequisites on Windows <em>(optional)</em><a class="headerlink" href="#documentation-prerequisites-on-windows-optional" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>choco install -y doxygen.install emacs plantuml
+choco install -y graphviz.portable --force <span class="c1"># Maybe optional: 2.44 broken, downgrades to 2.38</span>
+python -m pip install -r docs/requirements.txt --upgrade
+emacs -Q --batch -l docs/emacs-install-pkgs.el
+</pre></div>
+</div>
+</div>
+<div class="section" id="compiling-on-windows">
+<h3>Compiling on Windows<a class="headerlink" href="#compiling-on-windows" title="Permalink to this headline">¶</a></h3>
+<p>We compile with examples and documentation.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir build <span class="o">&amp;&amp;</span> <span class="nb">cd</span> build
+conan install .. -s <span class="nv">build_type</span><span class="o">=</span>Release -o sinspekto:with_examples<span class="o">=</span>True
+cmake -D <span class="nv">WITH_EXAMPLES</span><span class="o">=</span>ON -D <span class="nv">WITH_DOC</span><span class="o">=</span>ON  ..
+cmake --build . --config Release --parallel <span class="m">4</span>
+cmake --build . --target doc
+</pre></div>
+</div>
+<p>To run one of the example applications:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>activate.bat     <span class="c1"># Opensplice environment variables</span>
+activate_run.bat <span class="c1"># Dynamic libraries added to PATH</span>
+bin/sinspekto-app
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="android">
+<h2>Android<a class="headerlink" href="#android" title="Permalink to this headline">¶</a></h2>
+<p>You need Android NDK and SDK in addition to CMake and conan. There exists a conan
+recipe, <code class="docutils literal notranslate"><span class="pre">android-cmdline-tools</span></code>, which downloads and sets the necessary Android
+dependencies. The recipe is used to acquire necessary Android build tools in the
+instructions below. The lowest supported API level is 28 (Android 9).</p>
+<div class="section" id="compiling-for-android">
+<h3>Compiling for Android<a class="headerlink" href="#compiling-for-android" title="Permalink to this headline">¶</a></h3>
+<p>Environment variables <code class="docutils literal notranslate"><span class="pre">ANDROID_NDK_ROOT</span></code> and <code class="docutils literal notranslate"><span class="pre">ANDROID_SDK_ROOT</span></code> must point to Android
+build tools. This is also true for transitive dependencies. If the the environment
+variables are not already on the path, you can do the following to install the tools
+with conan before calling the <code class="docutils literal notranslate"><span class="pre">conan</span> <span class="pre">install</span></code> command for this library.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conan remote add joakimono https://api.bintray.com/conan/joakimono/conan
+mkdir build_help <span class="o">&amp;&amp;</span> <span class="nb">cd</span> build_help
+conan install <span class="s2">&quot;android-cmdline-tools/6858069@joakimono/testing&quot;</span> <span class="se">\</span>
+  --generator virtualenv <span class="se">\</span>
+  --profile<span class="o">=</span>../tools/profiles/android_api28_x86_64
+. activate.sh <span class="c1"># or activate.bat</span>
+<span class="nb">cd</span> ..
+</pre></div>
+</div>
+<p>The build profiles in <code class="docutils literal notranslate"><span class="pre">tools/profiles</span></code> is particularly useful for Android:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir build <span class="o">&amp;&amp;</span> <span class="nb">cd</span> build
+conan install .. --profile ../tools/profiles/android_api28_x86_64 --build missing
+cmake ..
+cmake --build . -j <span class="m">4</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Not tested on Windows.</p>
+</div>
+</div>
+</div>
+<div class="section" id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>If you have issues compiling Qt, with linker error for QMutex, try <code class="docutils literal notranslate"><span class="pre">unset</span> <span class="pre">CPATH</span></code>.</p></li>
+<li><p>If you run git bash, you need to run <code class="docutils literal notranslate"><span class="pre">emacs</span> <span class="pre">-Q</span> <span class="pre">--batch</span> <span class="pre">-l</span> <span class="pre">docs/emacs-install-pkgs.el</span></code>
+prerequisite in a git bash session</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../api/library-api.html" class="btn btn-neutral float-right" title="Public API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="intro.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, SINTEF Ocean.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. <jinja2.runtime.BlockReference object at 0x7f998c0d5b90>
+
+<br /><br />
+<table>
+  <tr>
+    <td width="120" style="vertical-align:middle;text-align:center">
+      <img alt="FHF" style="border-width:0" width="100" src="../_static/FHF-black-txt.png" />
+    </td>
+    <td>
+      This work was funded by <a href="https://www.fhf.no/fhf/about-fhf-english">FHF &ndash; Norwegian Seafood Research Fund</a> with <a href="https://www.fhf.no/prosjekter/prosjektbasen/901350/">Grant No. 901350</a>.<br /><br />
+    </td>
+  </tr>
+  <tr>
+    <td width="90" style="vertical-align:middle;text-align:center">
+      <img alt="GNU General Public License, Version 3.0" style="border-width:0" width="90" src="https://upload.wikimedia.org/wikipedia/commons/9/93/GPLv3_Logo.svg" />
+  </td>
+  <td>
+      This program is free software: you can redistribute it and/or modify
+      it under the terms of the GNU General Public License as published by
+      the Free Software Foundation, either version 3 of the License, or
+      (at your option) any later version.<br /><br />
+
+      This program is distributed in the hope that it will be useful,
+      but WITHOUT ANY WARRANTY; without even the implied warranty of
+      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+      GNU General Public License for more details.<br /><br />
+
+      You should have received a copy of the GNU General Public License
+      along with this program.  If not, see <a rel="license" href="https://www.gnu.org/licenses/">gnu.org/licenses</a>.
+  </td>
+  </tr>
+</table>
+
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

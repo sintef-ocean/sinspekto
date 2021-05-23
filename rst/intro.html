@@ -1,0 +1,737 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Introduction &mdash; sinspekto  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+        <script src="../_static/mathwork.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Getting started" href="installation.html" />
+    <link rel="prev" title="Sinspekto" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #00457c" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> sinspekto
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.4.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#c-setup">C++ setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minimal-qml-example">Minimal QML example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#integrating-sinspekto-with-qtchart">Integrating sinspekto with QtChart</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#implementing-new-sinspekto-components">Implementing new sinspekto components</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#configuration-options-and-targets">Configuration options and targets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#linux">Linux</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#prerequisites-debian-based">Prerequisites (debian-based)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#documentation-prerequisites-optional">Documentation prerequisites <em>(optional)</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#compiling-on-linux">Compiling on Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#windows">Windows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#documentation-prerequisites-on-windows-optional">Documentation prerequisites on Windows <em>(optional)</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#compiling-on-windows">Compiling on Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#android">Android</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#compiling-for-android">Compiling for Android</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/library-api.html">Public API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/library-api.html#class-hierarchy">Class Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/library-api.html#file-hierarchy">File Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/library-api.html#items-listing">Items listing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/library-api.html#namespaces">Namespaces</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/namespace_fkin.html">Namespace fkin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/namespace_qml_enums.html">Namespace qml_enums</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/namespace_ratatosk.html">Namespace ratatosk</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/namespace_ratatosk__types.html">Namespace ratatosk::types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/namespace_sinspekto.html">Namespace sinspekto</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/namespace_weather.html">Namespace weather</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/library-api.html#classes-and-structs">Classes and Structs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/structQtToDds.html">Struct QtToDds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classAxisEqualizer.html">Class AxisEqualizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsBitPublisher.html">Class DdsBitPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsBitSubscriber.html">Class DdsBitSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsBuffer.html">Class DdsBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsCommandPublisher.html">Class DdsCommandPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsCommandSubscriber.html">Class DdsCommandSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsDataSource.html">Class DdsDataSource</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsDoubleBuffer.html">Class DdsDoubleBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsDoublePublisher.html">Class DdsDoublePublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsDoubleSubscriber.html">Class DdsDoubleSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsIdVec1dBuffer.html">Class DdsIdVec1dBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsIdVec1dPublisher.html">Class DdsIdVec1dPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsIdVec1dSubscriber.html">Class DdsIdVec1dSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsIdVec2dBuffer.html">Class DdsIdVec2dBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsIdVec2dPublisher.html">Class DdsIdVec2dPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsIdVec2dSubscriber.html">Class DdsIdVec2dSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsIdVec3dBuffer.html">Class DdsIdVec3dBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsIdVec3dPublisher.html">Class DdsIdVec3dPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsIdVec3dSubscriber.html">Class DdsIdVec3dSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsIdVec4dBuffer.html">Class DdsIdVec4dBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsIdVec4dPublisher.html">Class DdsIdVec4dPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsIdVec4dSubscriber.html">Class DdsIdVec4dSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsKinematics2DBuffer.html">Class DdsKinematics2DBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsKinematics2DPublisher.html">Class DdsKinematics2DPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsKinematics2DSubscriber.html">Class DdsKinematics2DSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsKinematics6DBuffer.html">Class DdsKinematics6DBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsKinematics6DPublisher.html">Class DdsKinematics6DPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsKinematics6DSubscriber.html">Class DdsKinematics6DSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsNlpConfigSubscriber.html">Class DdsNlpConfigSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsOptiStatsSubscriber.html">Class DdsOptiStatsSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsStateAutomaton.html">Class DdsStateAutomaton</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsTimepointBuffer.html">Class DdsTimepointBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classDdsWeatherDataSubscriber.html">Class DdsWeatherDataSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classRatatoskCurrentAtDepthSubscriber.html">Class RatatoskCurrentAtDepthSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classRatatoskCurrentProfileSubscriber.html">Class RatatoskCurrentProfileSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classRatatoskDepthInfoSubscriber.html">Class RatatoskDepthInfoSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classRatatoskDouble2Publisher.html">Class RatatoskDouble2Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classRatatoskDouble2Subscriber.html">Class RatatoskDouble2Subscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classRatatoskDouble3Publisher.html">Class RatatoskDouble3Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classRatatoskDouble3Subscriber.html">Class RatatoskDouble3Subscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classRatatoskDouble4Publisher.html">Class RatatoskDouble4Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classRatatoskDouble4Subscriber.html">Class RatatoskDouble4Subscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classRatatoskDoubleValPublisher.html">Class RatatoskDoubleValPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classRatatoskDoubleValSubscriber.html">Class RatatoskDoubleValSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classRatatoskGyroInfoSubscriber.html">Class RatatoskGyroInfoSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classRatatoskLogInfoSubscriber.html">Class RatatoskLogInfoSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classRatatoskPosInfoSubscriber.html">Class RatatoskPosInfoSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/classRatatoskWindInfoSubscriber.html">Class RatatoskWindInfoSubscriber</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/library-api.html#enums">Enums</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/enum_namespaceqml__enums_1a91a3db16c3322be5b42a537cbf33d61d.html">Enum CommandType</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/enum_namespaceqml__enums_1a4100f76c977cffcd7c0e8093cbc434d9.html">Enum DimId</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/enum_namespaceqml__enums_1a8d48cdbe8201d9a5d7b02635adfbeb41.html">Enum ProcessStateKind</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/library-api.html#functions">Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/function_namespacesinspekto_1a5eb31c91d17e5c6f0ff46e4113f10215.html">Function sinspekto::generate_hex</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/function_namespacesinspekto_1a9065a36a0a487427926cfc99c068adcb.html">Function sinspekto::LoadSinspektoQmlTypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/function_namespacesinspekto_1aa28cae1bd666c474ab29e71cac6203cb.html">Function sinspekto::random_char</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/function_namespacesinspekto_1ae40a6ffe27e9591f460e5f1021c468a9.html">Function sinspekto::replace_data_points</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/function_namespacesinspekto_1a80b1550ed2b16a84b7e2a13c956223b7.html">Function sinspekto::replace_double_points</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/library-api.html#typedefs">Typedefs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/typedef_namespacesinspekto_1ab62727382eb24203ba8b49f0c2d98a14.html">Typedef sinspekto::RangeTX</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/typedef_namespacesinspekto_1a2c75aecc73fe2475517a40e817b8d235.html">Typedef sinspekto::RangeXY</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api_private/library-api-private.html">Private API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api_private/library-api-private.html#class-hierarchy">Class Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_private/library-api-private.html#file-hierarchy">File Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_private/library-api-private.html#items-listing">Items listing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api_private/library-api-private.html#namespaces">Namespaces</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/namespace_fkin__Dds.html">Namespace fkin::Dds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/namespace_QtToDds.html">Namespace QtToDds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/namespace_sinspekto.html">Namespace sinspekto</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api_private/library-api-private.html#classes-and-structs">Classes and Structs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/structQtToDds_1_1Dds.html">Struct Dds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/structsinspekto_1_1Reader.html">Template Struct Reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/structsinspekto_1_1Writer.html">Template Struct Writer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/classchart__example.html">Class chart_example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/classminimal__example.html">Class minimal_example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/classsinspekto_1_1DdsReaderListener.html">Template Class DdsReaderListener</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">sinspekto</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Introduction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="installation.html" class="btn btn-neutral float-right" title="Getting started" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Sinspekto" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p><em>Sinspekto</em> is a module that provides Qt modeling language (<a class="reference external" href="https://doc.qt.io/qt-5/qtqml-index.html">QML</a>) components for
+interacting with applications that use the data distribution service standard <a class="reference external" href="https://www.omg.org/spec/DDS/About-DDS/">OMG DDS</a>
+as communication middleware.</p>
+<p>Sinspekto consists of classes that define various <a class="reference external" href="https://doc.qt.io/qt-5/qtqml-syntax-objectattributes.html">QML Object Attributes</a>, which are
+translated to / from DDS topics. This means that by using sinspekto QML elements in
+your application, it is possible to interact with other systems using DDS.</p>
+<p>Currently, sinspekto supports a limited number of DDS structures, which are defined in
+<a class="reference internal" href="../api/namespace_fkin.html#namespace-fkin"><span class="std std-ref">Namespace fkin</span></a>. The DDS structures have accompanying adapter classes,
+which expose the DDS structure in QML. The <a class="reference internal" href="#component">Component</a> diagram below displays the core
+functionality of sinspekto.</p>
+<div class="figure align-center" id="id1">
+<span id="component"></span><a class="reference internal image-reference" href="../_images/container.svg"><img alt="../_images/container.svg" height="601" src="../_images/container.svg" width="1027" /></a>
+<p class="caption"><span class="caption-text">Component diagram for Sinspekto.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="c-setup">
+<h3>C++ setup<a class="headerlink" href="#c-setup" title="Permalink to this headline">¶</a></h3>
+<p>Once sinspekto is compiled and installed, it has to be linked to your application and
+you need to include a header in your executable source file. You also have to call
+<a class="reference internal" href="../api/function_namespacesinspekto_1a9065a36a0a487427926cfc99c068adcb.html#_CPPv4N9sinspekto21LoadSinspektoQmlTypesEv" title="sinspekto::LoadSinspektoQmlTypes"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">sinspekto::LoadSinspektoQmlTypes()</span></code></a> before instancing the QML engine.</p>
+<ol class="arabic">
+<li><p>Link to sinspekto with some CMake code lines.</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">find_package</span><span class="p">(</span><span class="s">sinspekto</span> <span class="s">CONFIG</span> <span class="s">REQUIRED</span><span class="p">)</span>
+<span class="nb">add_executable</span><span class="p">(</span><span class="s">your-app</span> <span class="s">main.cpp</span><span class="p">)</span>
+<span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">your-app</span>
+  <span class="s">Qt5::Widgets</span>
+  <span class="s">Qt5::Quick</span>
+  <span class="c"># and other libraries you use</span>
+  <span class="s">sinspekto::sinspekto</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Add header and call  <a class="reference internal" href="../api/function_namespacesinspekto_1a9065a36a0a487427926cfc99c068adcb.html#_CPPv4N9sinspekto21LoadSinspektoQmlTypesEv" title="sinspekto::LoadSinspektoQmlTypes"><code class="xref cpp cpp-func docutils literal notranslate"><span class="pre">sinspekto::LoadSinspektoQmlTypes()</span></code></a>.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;QApplication&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;QQmlEngine&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;QQmlComponent&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;QQuickWindow&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;QUrl&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;QDebug&gt;</span><span class="cp"></span>
+
+<span class="c1">///////// &lt;&lt;HERE&gt;&gt; ////////</span>
+<span class="cp">#include</span> <span class="cpf">&quot;sinspekto/SinspektoQml.hpp&quot;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[]){</span>
+
+  <span class="n">QApplication</span><span class="o">::</span><span class="n">setAttribute</span><span class="p">(</span><span class="n">Qt</span><span class="o">::</span><span class="n">AA_EnableHighDpiScaling</span><span class="p">);</span>
+  <span class="n">QApplication</span> <span class="n">app</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+  <span class="n">app</span><span class="p">.</span><span class="n">setOrganizationName</span><span class="p">(</span><span class="s">&quot;The Organization&quot;</span><span class="p">);</span>
+  <span class="n">app</span><span class="p">.</span><span class="n">setApplicationName</span><span class="p">(</span><span class="s">&quot;your-app&quot;</span><span class="p">);</span>
+
+  <span class="c1">///////// &lt;&lt;HERE&gt;&gt; ////////</span>
+  <span class="n">sinspekto</span><span class="o">::</span><span class="n">LoadSinspektoQmlTypes</span><span class="p">();</span>
+  <span class="n">QQmlEngine</span> <span class="n">engine</span><span class="p">;</span>
+
+  <span class="n">QQmlComponent</span> <span class="n">component</span><span class="p">(</span><span class="o">&amp;</span><span class="n">engine</span><span class="p">);</span>
+  <span class="n">QQuickWindow</span><span class="o">::</span><span class="n">setDefaultAlphaBuffer</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+  <span class="n">component</span><span class="p">.</span><span class="n">loadUrl</span><span class="p">(</span><span class="n">QUrl</span><span class="p">(</span><span class="n">QStringLiteral</span><span class="p">(</span><span class="s">&quot;qrc:/your-app.qml&quot;</span><span class="p">)));</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="n">component</span><span class="p">.</span><span class="n">isReady</span><span class="p">()</span> <span class="p">)</span>
+    <span class="n">component</span><span class="p">.</span><span class="n">create</span><span class="p">();</span>
+  <span class="k">else</span>
+    <span class="n">qWarning</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">component</span><span class="p">.</span><span class="n">errorString</span><span class="p">();</span>
+
+  <span class="k">return</span> <span class="n">app</span><span class="p">.</span><span class="n">exec</span><span class="p">();</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="minimal-qml-example">
+<h3>Minimal QML example<a class="headerlink" href="#minimal-qml-example" title="Permalink to this headline">¶</a></h3>
+<p>Below is a <a class="reference internal" href="#minimal-example">Minimal example</a>. It contains a functional pattern
+for using sinspekto together with QML elements. In this particular example
+there is a toggle switch, whose <code class="docutils literal notranslate"><span class="pre">checked</span></code> signal is connected to a
+<a class="reference internal" href="../api/classDdsBitPublisher.html#_CPPv415DdsBitPublisher" title="DdsBitPublisher"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">DdsBitPublisher</span></code></a>. Whenever the toggle switch changes, it is sent
+on the DDS topic <code class="docutils literal notranslate"><span class="pre">testBit</span></code>. On the line below there is a
+<a class="reference internal" href="../api/classDdsBitSubscriber.html#_CPPv416DdsBitSubscriber" title="DdsBitSubscriber"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">DdsBitSubscriber</span></code></a> of the same topic. Its <code class="docutils literal notranslate"><span class="pre">signal</span></code> property is
+connected to a toggle switch, so it mirrors the first switch, but the data flow goes
+via the DDS communication bus, which makes it silly, but illustrative.</p>
+<div class="figure align-center" id="id2">
+<span id="minimal-example"></span><a class="reference internal image-reference" href="../_images/minimal.gif"><img alt="../_images/minimal.gif" src="../_images/minimal.gif" style="width: 378.0px; height: 156.79999999999998px;" /></a>
+<p class="caption"><span class="caption-text">Minimal QML example.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<p>The key steps to use sinspekto are:</p>
+<ul class="simple">
+<li><p>Import the sinspekto module with <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">fkin.Dds</span> <span class="pre">1.0</span></code>.</p></li>
+<li><p>Create a <a class="reference internal" href="../api/structQtToDds.html#_CPPv47QtToDds" title="QtToDds"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">QtToDds</span></code></a> and call its init() function and then
+initialize all sinspekto DDS adapters.</p></li>
+<li><p>Use a sinspekto element’s property attributes to connect to visual (or non-visual)
+QML elements.</p></li>
+</ul>
+<div class="highlight-qml notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">QtQuick</span> <span class="mf">2.11</span>
+<span class="kr">import</span> <span class="nx">QtQuick</span><span class="p">.</span><span class="nx">Window</span> <span class="mf">2.11</span>
+<span class="kr">import</span> <span class="nx">QtQuick</span><span class="p">.</span><span class="nx">Layouts</span> <span class="mf">1.11</span>
+<span class="kr">import</span> <span class="nx">QtQuick</span><span class="p">.</span><span class="nx">Controls</span> <span class="mf">2.4</span>
+<span class="kr">import</span> <span class="nx">QtQuick</span><span class="p">.</span><span class="nx">Controls</span><span class="p">.</span><span class="nx">Material</span> <span class="mf">2.4</span>
+<span class="kr">import</span> <span class="nx">QtCharts</span> <span class="mf">2.2</span>
+
+<span class="c1">/// Loads sinspekto dds elements</span>
+<span class="kr">import</span> <span class="nx">fkin</span><span class="p">.</span><span class="nx">Dds</span> <span class="mf">1.0</span>
+
+<span class="nx">ApplicationWindow</span> <span class="p">{</span>
+    <span class="kd">id: windowg</span>
+    <span class="k">title:</span> <span class="nx">qsTr</span><span class="p">(</span><span class="s2">&quot;Minimal QML example&quot;</span><span class="p">)</span>
+    <span class="k">width:</span> <span class="mi">480</span>
+    <span class="k">height:</span> <span class="mi">200</span>
+    <span class="k">visible:</span> <span class="kc">true</span>
+
+    <span class="c1">/// Makes an instance of QtToDds</span>
+    <span class="nx">QtToDds</span> <span class="p">{</span>
+    <span class="kd">id: ddsParticipant</span><span class="p">;</span>
+    <span class="nx">readonly</span> <span class="nx">property</span> <span class="kr">int</span> <span class="k">domain:</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">Component.onCompleted:</span> <span class="p">{</span>
+    <span class="c1">/// initialize participant first, then the dds signals</span>
+    <span class="nx">init</span><span class="p">(</span><span class="nx">domain</span><span class="p">);</span>
+
+    <span class="c1">/// initialize DDS adapters by calling their init functions.</span>
+    <span class="nx">ddsSubscriber</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">ddsParticipant</span><span class="p">,</span> <span class="s2">&quot;testBit&quot;</span><span class="p">);</span>
+    <span class="nx">ddsPublisher</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">ddsParticipant</span><span class="p">,</span> <span class="s2">&quot;testBit&quot;</span><span class="p">,</span> <span class="nx">aSwitch</span><span class="p">.</span><span class="nx">checked</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="nx">GridLayout</span> <span class="p">{</span>
+    <span class="k">anchors.fill:</span> <span class="nx">parent</span><span class="p">;</span>
+    <span class="k">anchors.margins:</span> <span class="mi">20</span><span class="p">;</span>
+    <span class="k">columns:</span> <span class="mi">2</span><span class="p">;</span>
+
+    <span class="nx">Label</span> <span class="p">{</span> <span class="k">text:</span> <span class="s2">&quot;DDS bit publisher&quot;</span><span class="p">;</span> <span class="p">}</span>
+    <span class="nx">Switch</span> <span class="p">{</span>
+        <span class="kd">id: aSwitch</span><span class="p">;</span>
+        <span class="k">text:</span> <span class="nx">qsTr</span><span class="p">(</span><span class="s2">&quot;Send with DDS&quot;</span><span class="p">);</span>
+        <span class="k">checked:</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="k">onToggled:</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Switch signal is: &quot;</span> <span class="o">+</span> <span class="nx">ddsPublisher</span><span class="p">.</span><span class="nx">signal</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">/// sinspekto::DdsBitPublisher&#39;s signal is connected to the switch</span>
+        <span class="nx">DdsBitPublisher</span> <span class="p">{</span>
+            <span class="kd">id: ddsPublisher</span><span class="p">;</span>
+            <span class="k">signal:</span> <span class="nx">aSwitch</span><span class="p">.</span><span class="nx">checked</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nx">Label</span> <span class="p">{</span> <span class="k">text:</span> <span class="s2">&quot;DDS bit subscriber&quot;</span><span class="p">;</span> <span class="p">}</span>
+    <span class="nx">Switch</span> <span class="p">{</span>
+        <span class="kd">id: aSwitchInput</span><span class="p">;</span>
+        <span class="k">text:</span> <span class="nx">qsTr</span><span class="p">(</span><span class="s2">&quot;Received from DDS&quot;</span><span class="p">);</span>
+        <span class="k">checked:</span> <span class="nx">ddsSubscriber</span><span class="p">.</span><span class="nx">signal</span><span class="p">;</span>
+
+        <span class="c1">/// sinspekto::DdsBitSubscriber&#39;s signal is connected to the switch</span>
+        <span class="nx">DdsBitSubscriber</span> <span class="p">{</span>
+            <span class="kd">id: ddsSubscriber</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="integrating-sinspekto-with-qtchart">
+<h3>Integrating sinspekto with QtChart<a class="headerlink" href="#integrating-sinspekto-with-qtchart" title="Permalink to this headline">¶</a></h3>
+<p>“Qt Charts module provides a set of easy to use chart components”, <a class="reference external" href="https://doc.qt.io/qt-5/qtcharts-index.html">QtCharts</a>. The chart
+types make use of <a class="reference external" href="https://doc.qt.io/qt-5/qabstractseries.html">QAbstractSeries</a>-derived data structure to store data. The sinspekto
+module has classes that allow DDS data to be buffered and connected to QAbstractSeries
+instances so that DDS data can be visualized with Qt Charts. In particular,
+<a class="reference internal" href="../api/classDdsDoubleBuffer.html#_CPPv415DdsDoubleBuffer" title="DdsDoubleBuffer"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">DdsDoubleBuffer</span></code></a> and <a class="reference internal" href="../api/classDdsTimepointBuffer.html#_CPPv418DdsTimepointBuffer" title="DdsTimepointBuffer"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">DdsTimepointBuffer</span></code></a> are
+used in buffer classes designed specifically for supported DDS data structures, like
+for instance <a class="reference internal" href="../api/classDdsIdVec1dBuffer.html#_CPPv416DdsIdVec1dBuffer" title="DdsIdVec1dBuffer"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">DdsIdVec1dBuffer</span></code></a> for the
+<code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">fkin::IdVec1d</span></code> data type.</p>
+<p>The following example shows how to use such a buffer class to store DDS data and
+visualize it with a Qt Chart element. We will add a slider, which is connected to a
+<a class="reference internal" href="../api/classDdsIdVec1dPublisher.html#_CPPv419DdsIdVec1dPublisher" title="DdsIdVec1dPublisher"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">DdsIdVec1dPublisher</span></code></a>. The same DDS topic is subscribed to by
+<a class="reference internal" href="../api/classDdsIdVec1dBuffer.html#_CPPv416DdsIdVec1dBuffer" title="DdsIdVec1dBuffer"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">DdsIdVec1dBuffer</span></code></a>. This buffered data are visualized with a
+<a class="reference external" href="https://doc.qt.io/qt-5/qml-qtcharts-lineseries.html">LineSeries</a> element, see <a class="reference internal" href="#chart-qml-example">Chart QML example</a>.</p>
+<div class="figure align-center" id="id3">
+<span id="chart-qml-example"></span><a class="reference internal image-reference" href="../_images/chart.gif"><img alt="../_images/chart.gif" src="../_images/chart.gif" style="width: 467.59999999999997px; height: 236.6px;" /></a>
+<p class="caption"><span class="caption-text">Chart QML example.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<p>In the code blocks below we only show an excerpt of the QML code, please consult
+<a class="reference internal" href="../api_private/file_src_qml_example_chart_example.qml.html#file-src-qml-example-chart-example-qml"><span class="std std-ref">File chart_example.qml</span></a> for the whole example implementation.</p>
+<p>Make an instance of <a class="reference internal" href="../api/structQtToDds.html#_CPPv47QtToDds" title="QtToDds"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">QtToDds</span></code></a> and instantiate the DDS adapters:</p>
+<div class="highlight-qml notranslate"><div class="highlight"><pre><span></span><span class="nx">QtToDds</span> <span class="p">{</span>
+  <span class="kd">id: ddsParticipant</span><span class="p">;</span>
+  <span class="nx">readonly</span> <span class="nx">property</span> <span class="kr">int</span> <span class="k">domain:</span> <span class="mi">0</span><span class="p">;</span>
+
+  <span class="k">Component.onCompleted:</span> <span class="p">{</span>
+    <span class="c1">/// Initialize participant first, then the dds signals</span>
+    <span class="nx">init</span><span class="p">(</span><span class="nx">domain</span><span class="p">);</span>
+
+    <span class="c1">/// Initialize the IdVec1d Publisher, on topic &#39;anInput&#39; with recipient &#39;Test&#39;.</span>
+    <span class="nx">ddsSlide</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">ddsParticipant</span><span class="p">,</span> <span class="s2">&quot;anInput&quot;</span><span class="p">,</span> <span class="s2">&quot;Test&quot;</span><span class="p">,</span> <span class="nx">theSlider</span><span class="p">.</span><span class="nx">value</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+    <span class="c1">/// Initialize the Subscriber buffer on same topic, with a buffer size of 50 values.</span>
+    <span class="nx">ddsSlideBuffer</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">ddsParticipant</span><span class="p">,</span> <span class="s2">&quot;anInput&quot;</span><span class="p">,</span> <span class="s2">&quot;Test&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">Item</span> <span class="p">{</span>
+  <span class="nx">DdsIdVec1dPublisher</span> <span class="p">{</span> <span class="kd">id: ddsSlide</span><span class="p">;</span> <span class="p">}</span>
+  <span class="nx">DdsIdVec1dBuffer</span> <span class="p">{</span> <span class="kd">id: ddsSlideBuffer</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Create a slider and connect its value to the DDS publisher:</p>
+<div class="highlight-qml notranslate"><div class="highlight"><pre><span></span><span class="nx">Slider</span> <span class="p">{</span>
+    <span class="kd">id: theSlider</span><span class="p">;</span>
+    <span class="k">from:</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="k">value:</span> <span class="mi">15</span><span class="p">;</span>
+    <span class="k">to:</span> <span class="mi">30</span><span class="p">;</span>
+    <span class="k">stepSize:</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">snapMode:</span> <span class="nx">Slider</span><span class="p">.</span><span class="nx">SnapOnRelease</span><span class="p">;</span>
+    <span class="k">onValueChanged:</span> <span class="p">{</span> <span class="nx">ddsSlide</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">theSlider</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Create a ChartView, attach a LineSeries and create necessary connections:</p>
+<div class="highlight-qml notranslate"><div class="highlight"><pre><span></span><span class="nx">ChartView</span> <span class="p">{</span>
+    <span class="kd">id: depthChart</span><span class="p">;</span>
+    <span class="c1">// .. misc. options</span>
+
+    <span class="c1">/// Sets signals and slots connections for the ddsSlideBuffer instance.</span>
+    <span class="nx">Connections</span> <span class="p">{</span>
+    <span class="k">target:</span> <span class="nx">ddsSlideBuffer</span><span class="p">;</span>
+
+    <span class="c1">// When new data have arrived on DDS, update slideSignal&#39;s QAbstractSeries data structures.</span>
+    <span class="k">onNewData:</span> <span class="p">{</span>
+
+      <span class="c1">/// Updates the axes of slideSignal with the time axis and x value of IdVec1d</span>
+      <span class="c1">/// buffer. If there were more attributes in the DDS structure, more calls to</span>
+      <span class="c1">/// updateSeries with other series and e.g. FKIN.Y may be needed.</span>
+      <span class="nx">ddsSlideBuffer</span><span class="p">.</span><span class="nx">updateSeries</span><span class="p">(</span><span class="nx">slideSignal</span><span class="p">,</span> <span class="nx">FKIN</span><span class="p">.</span><span class="nx">T</span><span class="p">,</span> <span class="nx">FKIN</span><span class="p">.</span><span class="nx">X</span><span class="p">);</span>
+      <span class="c1">// ddsSlideBuffer.updateSeries(otherSeries, FKIN.T, FKIN.Y); // e.g. in case of IdVec2d.</span>
+    <span class="p">}</span>
+
+    <span class="c1">/// Ensures a sliding time range</span>
+    <span class="kd">function</span> <span class="nx">ensureTimeHorizon</span><span class="p">(</span><span class="nx">timeChart</span><span class="p">,</span> <span class="nx">horizonMS</span><span class="p">,</span> <span class="nx">futureMS</span><span class="p">,</span> <span class="nx">t_min</span><span class="p">,</span> <span class="nx">t_max</span><span class="p">)</span>
+    <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+
+    <span class="c1">// Update the viewable data range (y-axis)</span>
+    <span class="k">onRangeChanged:</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">dim</span> <span class="o">==</span> <span class="nx">FKIN</span><span class="p">.</span><span class="nx">X</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">slideSignal</span><span class="p">.</span><span class="nx">axisY</span><span class="p">.</span><span class="nx">min</span> <span class="o">=</span> <span class="nx">ddsSlideBuffer</span><span class="p">.</span><span class="nx">rangeX</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
+            <span class="nx">slideSignal</span><span class="p">.</span><span class="nx">axisY</span><span class="p">.</span><span class="nx">max</span> <span class="o">=</span> <span class="nx">ddsSlideBuffer</span><span class="p">.</span><span class="nx">rangeX</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Update the viewble time range (x-axis)</span>
+    <span class="k">onRangeTChanged:</span> <span class="p">{</span>
+        <span class="nx">slideSignal</span><span class="p">.</span><span class="nx">axisX</span><span class="p">.</span><span class="nx">min</span> <span class="o">=</span> <span class="nx">ddsSlideBuffer</span><span class="p">.</span><span class="nx">rangeTmin</span><span class="p">;</span>
+        <span class="nx">slideSignal</span><span class="p">.</span><span class="nx">axisX</span><span class="p">.</span><span class="nx">max</span> <span class="o">=</span> <span class="nx">ddsSlideBuffer</span><span class="p">.</span><span class="nx">rangeTmax</span><span class="p">;</span>
+
+        <span class="nx">ensureTimeHorizon</span><span class="p">(</span>
+            <span class="nx">depthChart</span><span class="p">,</span>
+            <span class="nx">slideSignal</span><span class="p">.</span><span class="nx">horizonMS</span><span class="p">,</span>
+            <span class="nx">slideSignal</span><span class="p">.</span><span class="nx">futureMS</span><span class="p">,</span>
+            <span class="nx">ddsSlideBuffer</span><span class="p">.</span><span class="nx">rangeTmin</span><span class="p">,</span>
+            <span class="nx">ddsSlideBuffer</span><span class="p">.</span><span class="nx">rangeTmax</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">/// The LineSeries chart. The x-axis is a DateTimeAxis, which makes use of QDateTime</span>
+    <span class="nx">LineSeries</span> <span class="p">{</span>
+    <span class="kd">id: slideSignal</span><span class="p">;</span>
+    <span class="k">name:</span> <span class="nx">qsTr</span><span class="p">(</span><span class="s2">&quot;Slider Signal&quot;</span><span class="p">);</span>
+    <span class="c1">// .. options</span>
+    <span class="nx">property</span> <span class="kr">int</span> <span class="k">futureMS:</span> <span class="mi">1000</span><span class="p">;</span>
+    <span class="nx">property</span> <span class="kr">int</span> <span class="k">horizonMS:</span> <span class="mi">10000</span> <span class="o">-</span> <span class="nx">futureMS</span><span class="p">;</span>
+
+    <span class="k">axisX:</span> <span class="nx">DateTimeAxis</span> <span class="p">{</span>
+        <span class="k">titleText:</span> <span class="nx">qsTr</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">);</span>
+        <span class="k">format:</span> <span class="s2">&quot;hh:mm:ss&quot;</span><span class="p">;</span>
+        <span class="k">labelsFont:</span> <span class="nb">window</span><span class="p">.</span><span class="nx">plotFont</span><span class="p">;</span>
+        <span class="k">tickCount :</span> <span class="mi">3</span><span class="p">;</span>
+        <span class="k">min:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+        <span class="k">max:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">axisY:</span> <span class="nx">ValueAxis</span> <span class="p">{</span>
+        <span class="k">titleText:</span> <span class="nx">qsTr</span><span class="p">(</span><span class="s2">&quot;Value&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; [-]&quot;</span><span class="p">;</span>
+        <span class="k">labelsFont:</span> <span class="nb">window</span><span class="p">.</span><span class="nx">plotFont</span><span class="p">;</span>
+        <span class="k">reverse:</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="k">min:</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">max:</span> <span class="mf">0.1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Newer version of Qt &gt; 5.12(?) deprecates implicitly defined properties in
+<code class="docutils literal notranslate"><span class="pre">Connections</span></code>, so instead of <code class="docutils literal notranslate"><span class="pre">onRangeChanged:</span> <span class="pre">{..}</span></code>, the new syntax <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">onRangeChanged(range,</span> <span class="pre">dim){..}</span></code> should be used, with signature equal to the slot
+function, see <a class="reference external" href="https://doc.qt.io/qt-5/qml-qtqml-connections.html#details">qml connections</a>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="implementing-new-sinspekto-components">
+<h2>Implementing new sinspekto components<a class="headerlink" href="#implementing-new-sinspekto-components" title="Permalink to this headline">¶</a></h2>
+<p>Currently, adding support for new DDS data types require a bit of manual coding. The
+best way to get started is to explore existing source code and copy similar
+patterns. There are some steps to keep in mind when adding new QML components.</p>
+<ul class="simple">
+<li><p>Create a new <code class="docutils literal notranslate"><span class="pre">&lt;new&gt;.hpp</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;new&gt;.cpp</span></code> file in <code class="docutils literal notranslate"><span class="pre">include/sinspekto/</span></code> and <code class="docutils literal notranslate"><span class="pre">src/sinspekto/</span></code>, respectively.</p></li>
+<li><p>Add them in <code class="docutils literal notranslate"><span class="pre">src/CMakeLists.txt</span></code>.</p></li>
+<li><p>Remember to inherit from <code class="docutils literal notranslate"><span class="pre">QObject</span></code> and add desired signals, slots, and properties.</p></li>
+<li><p>Make sure that the IDL type is defined in an <code class="docutils literal notranslate"><span class="pre">idl</span></code> file from which the idl-compiler
+creates c++ headers. This typically means any type you include from <code class="docutils literal notranslate"><span class="pre">RatatoskIDL</span></code>.</p></li>
+<li><p>For a DDS Subscriber, add <code class="docutils literal notranslate"><span class="pre">std::unique_ptr&lt;sinspekto::Reader&lt;YOUR_NEW_DDS_TYPE&gt;&gt;</span></code> as a member variable.</p></li>
+<li><p>For a DDS Publisher, add <code class="docutils literal notranslate"><span class="pre">std::unique_ptr&lt;sinspekto::Writer&lt;YOUR_NEW_DDS_TYPE&gt;&gt;</span></code> as a member variable.</p></li>
+<li><p>Forward declare the IDL-generated data type in <code class="docutils literal notranslate"><span class="pre">include/sinspekto/QtToDds.hpp</span></code>.</p></li>
+<li><p>If you have created a new IDL-file with namespace <code class="docutils literal notranslate"><span class="pre">&lt;MODULE&gt;</span></code>, be sure to include
+<code class="docutils literal notranslate"><span class="pre">&lt;MODULE&gt;_types_DCPS.hpp</span></code> in <code class="docutils literal notranslate"><span class="pre">src/sinspekto/QtToDds.cpp</span></code>.</p></li>
+<li><p>Include your new header file in <code class="docutils literal notranslate"><span class="pre">src/sinspekto/SinspektoQml.cpp</span></code> and
+to register the QML type with <code class="docutils literal notranslate"><span class="pre">qmlRegisterType&lt;YOUR_CLASS&gt;(&quot;fkin.Dds&quot;,</span> <span class="pre">1,</span> <span class="pre">0,</span> <span class="pre">&quot;YOUR_CLASS&quot;)</span></code>.</p></li>
+</ul>
+<p><a class="reference internal" href="../api_private/structsinspekto_1_1Reader.html#_CPPv4I0EN9sinspekto6ReaderE" title="sinspekto::Reader"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">sinspekto::Reader</span></code></a> and <a class="reference internal" href="../api_private/structsinspekto_1_1Writer.html#_CPPv4I0EN9sinspekto6WriterE" title="sinspekto::Writer"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">sinspekto::Writer</span></code></a> are
+merely convenience classes that encapsulates common DDS settings and QoS
+configurations. By default, they are set up with a default Quality of service. This is
+usually good enough, but for more custom setups, you will need to implement your own
+reader and writer classes as needed.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="installation.html" class="btn btn-neutral float-right" title="Getting started" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="Sinspekto" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, SINTEF Ocean.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. <jinja2.runtime.BlockReference object at 0x7f998accc810>
+
+<br /><br />
+<table>
+  <tr>
+    <td width="120" style="vertical-align:middle;text-align:center">
+      <img alt="FHF" style="border-width:0" width="100" src="../_static/FHF-black-txt.png" />
+    </td>
+    <td>
+      This work was funded by <a href="https://www.fhf.no/fhf/about-fhf-english">FHF &ndash; Norwegian Seafood Research Fund</a> with <a href="https://www.fhf.no/prosjekter/prosjektbasen/901350/">Grant No. 901350</a>.<br /><br />
+    </td>
+  </tr>
+  <tr>
+    <td width="90" style="vertical-align:middle;text-align:center">
+      <img alt="GNU General Public License, Version 3.0" style="border-width:0" width="90" src="https://upload.wikimedia.org/wikipedia/commons/9/93/GPLv3_Logo.svg" />
+  </td>
+  <td>
+      This program is free software: you can redistribute it and/or modify
+      it under the terms of the GNU General Public License as published by
+      the Free Software Foundation, either version 3 of the License, or
+      (at your option) any later version.<br /><br />
+
+      This program is distributed in the hope that it will be useful,
+      but WITHOUT ANY WARRANTY; without even the implied warranty of
+      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+      GNU General Public License for more details.<br /><br />
+
+      You should have received a copy of the GNU General Public License
+      along with this program.  If not, see <a rel="license" href="https://www.gnu.org/licenses/">gnu.org/licenses</a>.
+  </td>
+  </tr>
+</table>
+
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

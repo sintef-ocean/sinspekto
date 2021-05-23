@@ -1,0 +1,679 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Class RatatoskWindInfoSubscriber &mdash; sinspekto  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+        <script src="../_static/mathwork.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Enum CommandType" href="enum_namespaceqml__enums_1a91a3db16c3322be5b42a537cbf33d61d.html" />
+    <link rel="prev" title="Class RatatoskPosInfoSubscriber" href="classRatatoskPosInfoSubscriber.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #00457c" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> sinspekto
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.4.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../rst/intro.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../rst/intro.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rst/intro.html#usage">Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../rst/intro.html#c-setup">C++ setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rst/intro.html#minimal-qml-example">Minimal QML example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rst/intro.html#integrating-sinspekto-with-qtchart">Integrating sinspekto with QtChart</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../rst/intro.html#implementing-new-sinspekto-components">Implementing new sinspekto components</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../rst/installation.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../rst/installation.html#configuration-options-and-targets">Configuration options and targets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rst/installation.html#linux">Linux</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../rst/installation.html#prerequisites-debian-based">Prerequisites (debian-based)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rst/installation.html#documentation-prerequisites-optional">Documentation prerequisites <em>(optional)</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rst/installation.html#compiling-on-linux">Compiling on Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../rst/installation.html#windows">Windows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../rst/installation.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rst/installation.html#documentation-prerequisites-on-windows-optional">Documentation prerequisites on Windows <em>(optional)</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rst/installation.html#compiling-on-windows">Compiling on Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../rst/installation.html#android">Android</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../rst/installation.html#compiling-for-android">Compiling for Android</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../rst/installation.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="library-api.html">Public API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="library-api.html#class-hierarchy">Class Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="library-api.html#file-hierarchy">File Hierarchy</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="library-api.html#items-listing">Items listing</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="library-api.html#namespaces">Namespaces</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="namespace_fkin.html">Namespace fkin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespace_qml_enums.html">Namespace qml_enums</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespace_ratatosk.html">Namespace ratatosk</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespace_ratatosk__types.html">Namespace ratatosk::types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespace_sinspekto.html">Namespace sinspekto</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespace_weather.html">Namespace weather</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="reference internal" href="library-api.html#classes-and-structs">Classes and Structs</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="structQtToDds.html">Struct QtToDds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classAxisEqualizer.html">Class AxisEqualizer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsBitPublisher.html">Class DdsBitPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsBitSubscriber.html">Class DdsBitSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsBuffer.html">Class DdsBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsCommandPublisher.html">Class DdsCommandPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsCommandSubscriber.html">Class DdsCommandSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsDataSource.html">Class DdsDataSource</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsDoubleBuffer.html">Class DdsDoubleBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsDoublePublisher.html">Class DdsDoublePublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsDoubleSubscriber.html">Class DdsDoubleSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec1dBuffer.html">Class DdsIdVec1dBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec1dPublisher.html">Class DdsIdVec1dPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec1dSubscriber.html">Class DdsIdVec1dSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec2dBuffer.html">Class DdsIdVec2dBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec2dPublisher.html">Class DdsIdVec2dPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec2dSubscriber.html">Class DdsIdVec2dSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec3dBuffer.html">Class DdsIdVec3dBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec3dPublisher.html">Class DdsIdVec3dPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec3dSubscriber.html">Class DdsIdVec3dSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec4dBuffer.html">Class DdsIdVec4dBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec4dPublisher.html">Class DdsIdVec4dPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsIdVec4dSubscriber.html">Class DdsIdVec4dSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsKinematics2DBuffer.html">Class DdsKinematics2DBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsKinematics2DPublisher.html">Class DdsKinematics2DPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsKinematics2DSubscriber.html">Class DdsKinematics2DSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsKinematics6DBuffer.html">Class DdsKinematics6DBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsKinematics6DPublisher.html">Class DdsKinematics6DPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsKinematics6DSubscriber.html">Class DdsKinematics6DSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsNlpConfigSubscriber.html">Class DdsNlpConfigSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsOptiStatsSubscriber.html">Class DdsOptiStatsSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsStateAutomaton.html">Class DdsStateAutomaton</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsTimepointBuffer.html">Class DdsTimepointBuffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classDdsWeatherDataSubscriber.html">Class DdsWeatherDataSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskCurrentAtDepthSubscriber.html">Class RatatoskCurrentAtDepthSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskCurrentProfileSubscriber.html">Class RatatoskCurrentProfileSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskDepthInfoSubscriber.html">Class RatatoskDepthInfoSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskDouble2Publisher.html">Class RatatoskDouble2Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskDouble2Subscriber.html">Class RatatoskDouble2Subscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskDouble3Publisher.html">Class RatatoskDouble3Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskDouble3Subscriber.html">Class RatatoskDouble3Subscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskDouble4Publisher.html">Class RatatoskDouble4Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskDouble4Subscriber.html">Class RatatoskDouble4Subscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskDoubleValPublisher.html">Class RatatoskDoubleValPublisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskDoubleValSubscriber.html">Class RatatoskDoubleValSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskGyroInfoSubscriber.html">Class RatatoskGyroInfoSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskLogInfoSubscriber.html">Class RatatoskLogInfoSubscriber</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classRatatoskPosInfoSubscriber.html">Class RatatoskPosInfoSubscriber</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Class RatatoskWindInfoSubscriber</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="library-api.html#enums">Enums</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="enum_namespaceqml__enums_1a91a3db16c3322be5b42a537cbf33d61d.html">Enum CommandType</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enum_namespaceqml__enums_1a4100f76c977cffcd7c0e8093cbc434d9.html">Enum DimId</a></li>
+<li class="toctree-l4"><a class="reference internal" href="enum_namespaceqml__enums_1a8d48cdbe8201d9a5d7b02635adfbeb41.html">Enum ProcessStateKind</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="library-api.html#functions">Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="function_namespacesinspekto_1a5eb31c91d17e5c6f0ff46e4113f10215.html">Function sinspekto::generate_hex</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_namespacesinspekto_1a9065a36a0a487427926cfc99c068adcb.html">Function sinspekto::LoadSinspektoQmlTypes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_namespacesinspekto_1aa28cae1bd666c474ab29e71cac6203cb.html">Function sinspekto::random_char</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_namespacesinspekto_1ae40a6ffe27e9591f460e5f1021c468a9.html">Function sinspekto::replace_data_points</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_namespacesinspekto_1a80b1550ed2b16a84b7e2a13c956223b7.html">Function sinspekto::replace_double_points</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="library-api.html#typedefs">Typedefs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="typedef_namespacesinspekto_1ab62727382eb24203ba8b49f0c2d98a14.html">Typedef sinspekto::RangeTX</a></li>
+<li class="toctree-l4"><a class="reference internal" href="typedef_namespacesinspekto_1a2c75aecc73fe2475517a40e817b8d235.html">Typedef sinspekto::RangeXY</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api_private/library-api-private.html">Private API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api_private/library-api-private.html#class-hierarchy">Class Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_private/library-api-private.html#file-hierarchy">File Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_private/library-api-private.html#items-listing">Items listing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api_private/library-api-private.html#namespaces">Namespaces</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/namespace_fkin__Dds.html">Namespace fkin::Dds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/namespace_QtToDds.html">Namespace QtToDds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/namespace_sinspekto.html">Namespace sinspekto</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api_private/library-api-private.html#classes-and-structs">Classes and Structs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/structQtToDds_1_1Dds.html">Struct Dds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/structsinspekto_1_1Reader.html">Template Struct Reader</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/structsinspekto_1_1Writer.html">Template Struct Writer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/classchart__example.html">Class chart_example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/classminimal__example.html">Class minimal_example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api_private/classsinspekto_1_1DdsReaderListener.html">Template Class DdsReaderListener</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">sinspekto</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="library-api.html">Public API</a> &raquo;</li>
+        
+      <li>Class RatatoskWindInfoSubscriber</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="enum_namespaceqml__enums_1a91a3db16c3322be5b42a537cbf33d61d.html" class="btn btn-neutral float-right" title="Enum CommandType" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+      
+      
+        <a href="classRatatoskPosInfoSubscriber.html" class="btn btn-neutral float-left" title="Class RatatoskPosInfoSubscriber" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="class-ratatoskwindinfosubscriber">
+<span id="exhale-class-classratatoskwindinfosubscriber"></span><h1>Class RatatoskWindInfoSubscriber<a class="headerlink" href="#class-ratatoskwindinfosubscriber" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_sinspekto_ratatosk_RatatoskWindInfo.hpp.html#file-sinspekto-ratatosk-ratatoskwindinfo-hpp"><span class="std std-ref">File RatatoskWindInfo.hpp</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">QObject</span></code></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv426RatatoskWindInfoSubscriber">
+<span id="_CPPv326RatatoskWindInfoSubscriber"></span><span id="_CPPv226RatatoskWindInfoSubscriber"></span><span id="RatatoskWindInfoSubscriber"></span><span class="target" id="classRatatoskWindInfoSubscriber"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RatatoskWindInfoSubscriber</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">QObject</span></span><a class="headerlink" href="#_CPPv426RatatoskWindInfoSubscriber" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Subscriber for DDS type ratatosk::types::WindInfo as a QML element. </p>
+<p>This class is a QML element and enables QML applications to gain access to a DDS signal type as a read-only QML property. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N26RatatoskWindInfoSubscriber26RatatoskWindInfoSubscriberEP7QObject">
+<span id="_CPPv3N26RatatoskWindInfoSubscriber26RatatoskWindInfoSubscriberEP7QObject"></span><span id="_CPPv2N26RatatoskWindInfoSubscriber26RatatoskWindInfoSubscriberEP7QObject"></span><span id="RatatoskWindInfoSubscriber::RatatoskWindInfoSubscriber__QObjectP"></span><span class="target" id="classRatatoskWindInfoSubscriber_1a69ba189666ff1e5daa4511d579f1bb71"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RatatoskWindInfoSubscriber</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">QObject</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">parent</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N26RatatoskWindInfoSubscriber26RatatoskWindInfoSubscriberEP7QObject" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Constructor. </p>
+<p>The initialization is deferred to an <a class="reference internal" href="#classRatatoskWindInfoSubscriber_1abdd92749c83770a9c321f199b6765425"><span class="std std-ref">init()</span></a> function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>parent</strong> – <strong>[in]</strong> QObject pointer. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N26RatatoskWindInfoSubscriberD0Ev">
+<span id="_CPPv3N26RatatoskWindInfoSubscriberD0Ev"></span><span id="_CPPv2N26RatatoskWindInfoSubscriberD0Ev"></span><span id="RatatoskWindInfoSubscriber::~RatatoskWindInfoSubscriber"></span><span class="target" id="classRatatoskWindInfoSubscriber_1ae8e3090256ae7da232d8fcc28c2542af"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~RatatoskWindInfoSubscriber</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N26RatatoskWindInfoSubscriberD0Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Destructor. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK26RatatoskWindInfoSubscriber9trueSpeedEv">
+<span id="_CPPv3NK26RatatoskWindInfoSubscriber9trueSpeedEv"></span><span id="_CPPv2NK26RatatoskWindInfoSubscriber9trueSpeedEv"></span><span id="RatatoskWindInfoSubscriber::trueSpeedC"></span><span class="target" id="classRatatoskWindInfoSubscriber_1a0336efcbcb1603832c41f532fd8e43a0"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">trueSpeed</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Property accessor for trueSpeed in QML. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True speed [m/s] </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK26RatatoskWindInfoSubscriber7trueDirEv">
+<span id="_CPPv3NK26RatatoskWindInfoSubscriber7trueDirEv"></span><span id="_CPPv2NK26RatatoskWindInfoSubscriber7trueDirEv"></span><span id="RatatoskWindInfoSubscriber::trueDirC"></span><span class="target" id="classRatatoskWindInfoSubscriber_1abf2c85d4dc2b321de2231fe2fc6cf846"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">trueDir</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Property accessor for trueDir in QML. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True direction [rad] </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK26RatatoskWindInfoSubscriber8relSpeedEv">
+<span id="_CPPv3NK26RatatoskWindInfoSubscriber8relSpeedEv"></span><span id="_CPPv2NK26RatatoskWindInfoSubscriber8relSpeedEv"></span><span id="RatatoskWindInfoSubscriber::relSpeedC"></span><span class="target" id="classRatatoskWindInfoSubscriber_1a8655072df46701282c4b243770078632"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">relSpeed</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Property accessor for relSpeed in QML. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Relative speed [m/s] </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK26RatatoskWindInfoSubscriber6relDirEv">
+<span id="_CPPv3NK26RatatoskWindInfoSubscriber6relDirEv"></span><span id="_CPPv2NK26RatatoskWindInfoSubscriber6relDirEv"></span><span id="RatatoskWindInfoSubscriber::relDirC"></span><span class="target" id="classRatatoskWindInfoSubscriber_1a56d877ef0fb76be0e5e0b2ea995933f9"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">relDir</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Property accessor for relDir in QML. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Relative direction [rad] </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK26RatatoskWindInfoSubscriber14trueWindRelDirEv">
+<span id="_CPPv3NK26RatatoskWindInfoSubscriber14trueWindRelDirEv"></span><span id="_CPPv2NK26RatatoskWindInfoSubscriber14trueWindRelDirEv"></span><span id="RatatoskWindInfoSubscriber::trueWindRelDirC"></span><span class="target" id="classRatatoskWindInfoSubscriber_1acba3d9750fbf2d0b9801933bb280f5b4"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">trueWindRelDir</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Property accessor for trueWindRelDir in QML. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True wind relative direction [m/s] </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK26RatatoskWindInfoSubscriber9timestampEv">
+<span id="_CPPv3NK26RatatoskWindInfoSubscriber9timestampEv"></span><span id="_CPPv2NK26RatatoskWindInfoSubscriber9timestampEv"></span><span id="RatatoskWindInfoSubscriber::timestampC"></span><span class="target" id="classRatatoskWindInfoSubscriber_1a9c0d3471f92a629b5598ac51a506a121"></span><span class="n"><span class="pre">QDateTime</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">timestamp</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Property accessor for timestamp in QML. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Timestamp as QML compatible type. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N26RatatoskWindInfoSubscriber4initEP7QtToDdsRK7QStringb">
+<span id="_CPPv3N26RatatoskWindInfoSubscriber4initEP7QtToDdsRK7QStringb"></span><span id="_CPPv2N26RatatoskWindInfoSubscriber4initEP7QtToDdsRK7QStringb"></span><span id="RatatoskWindInfoSubscriber::init__QtToDdsP.QStringCR.b"></span><span class="target" id="classRatatoskWindInfoSubscriber_1abdd92749c83770a9c321f199b6765425"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">init</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="structQtToDds.html#_CPPv47QtToDds" title="QtToDds"><span class="n"><span class="pre">QtToDds</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">dds</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">QString</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">topic</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">with_listener</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">true</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N26RatatoskWindInfoSubscriber4initEP7QtToDdsRK7QStringb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Initializes DDS reader and connects Qt signals and slots. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dds</strong> – <strong>[in]</strong> Pointer to <a class="reference internal" href="structQtToDds.html#structQtToDds"><span class="std std-ref">QtToDds</span></a> instance. </p></li>
+<li><p><strong>topic</strong> – <strong>[in]</strong> Name of DDS topic for which to subscribe. </p></li>
+<li><p><strong>with_listener</strong> – <strong>[in]</strong> Use DdsReaderListener callback to trigger <a class="reference internal" href="#classRatatoskWindInfoSubscriber_1acc1e8893ca0c1e396ccc84d4e9b8586f"><span class="std std-ref">eventHeard()</span></a> signal. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-slots">Public Slots</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N26RatatoskWindInfoSubscriber11updateValueEv">
+<span id="_CPPv3N26RatatoskWindInfoSubscriber11updateValueEv"></span><span id="_CPPv2N26RatatoskWindInfoSubscriber11updateValueEv"></span><span id="RatatoskWindInfoSubscriber::updateValue"></span><span class="target" id="classRatatoskWindInfoSubscriber_1a559328f6fd3e704d51bef2b9d1f12f15"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">updateValue</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N26RatatoskWindInfoSubscriber11updateValueEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Takes all new samples from the subscribed topic and uses the last sample. </p>
+<p>This slot calls take() from the DDS reader and stores the last new sample as the current value. If there were a new sample it emits &lt;…&gt;Changed(). </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-signals">Signals</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N26RatatoskWindInfoSubscriber16trueSpeedChangedEd">
+<span id="_CPPv3N26RatatoskWindInfoSubscriber16trueSpeedChangedEd"></span><span id="_CPPv2N26RatatoskWindInfoSubscriber16trueSpeedChangedEd"></span><span id="RatatoskWindInfoSubscriber::trueSpeedChanged__double"></span><span class="target" id="classRatatoskWindInfoSubscriber_1a3454cebd19756cb29754f2be2bc7389c"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">trueSpeedChanged</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">trueSpeed</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N26RatatoskWindInfoSubscriber16trueSpeedChangedEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DDS value has changed. </p>
+<p>This signal is connected to the QML <a class="reference internal" href="#classRatatoskWindInfoSubscriber_1ad0fa73997acc8e73b2ca6b939492cc00"><span class="std std-ref">RatatoskWindInfoSubscriber::trueSpeed</span></a> property.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>trueSpeed</strong> – <strong>[out]</strong> New value. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N26RatatoskWindInfoSubscriber14trueDirChangedEd">
+<span id="_CPPv3N26RatatoskWindInfoSubscriber14trueDirChangedEd"></span><span id="_CPPv2N26RatatoskWindInfoSubscriber14trueDirChangedEd"></span><span id="RatatoskWindInfoSubscriber::trueDirChanged__double"></span><span class="target" id="classRatatoskWindInfoSubscriber_1a2225998ed191044f441d841a5c001573"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">trueDirChanged</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">trueDir</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N26RatatoskWindInfoSubscriber14trueDirChangedEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DDS value has changed. </p>
+<p>This signal is connected to the QML <a class="reference internal" href="#classRatatoskWindInfoSubscriber_1a24d3300c568e8a6748f9edb42fcfb1e0"><span class="std std-ref">RatatoskWindInfoSubscriber::trueDir</span></a> property.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>trueDir</strong> – <strong>[out]</strong> New value. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N26RatatoskWindInfoSubscriber15relSpeedChangedEd">
+<span id="_CPPv3N26RatatoskWindInfoSubscriber15relSpeedChangedEd"></span><span id="_CPPv2N26RatatoskWindInfoSubscriber15relSpeedChangedEd"></span><span id="RatatoskWindInfoSubscriber::relSpeedChanged__double"></span><span class="target" id="classRatatoskWindInfoSubscriber_1a5c7b0adc9f4665f2511e199a0ed0e90d"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">relSpeedChanged</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">relSpeed</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N26RatatoskWindInfoSubscriber15relSpeedChangedEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DDS value has changed. </p>
+<p>This signal is connected to the QML <a class="reference internal" href="#classRatatoskWindInfoSubscriber_1a0f605b390ed8019aff27cf1bf83a93fa"><span class="std std-ref">RatatoskWindInfoSubscriber::relSpeed</span></a> property.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>relSpeed</strong> – <strong>[out]</strong> New value. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N26RatatoskWindInfoSubscriber13relDirChangedEd">
+<span id="_CPPv3N26RatatoskWindInfoSubscriber13relDirChangedEd"></span><span id="_CPPv2N26RatatoskWindInfoSubscriber13relDirChangedEd"></span><span id="RatatoskWindInfoSubscriber::relDirChanged__double"></span><span class="target" id="classRatatoskWindInfoSubscriber_1a90408e500a516e72884b7a7ed2af7397"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">relDirChanged</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">relDir</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N26RatatoskWindInfoSubscriber13relDirChangedEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DDS value has changed. </p>
+<p>This signal is connected to the QML <a class="reference internal" href="#classRatatoskWindInfoSubscriber_1a49496638dccd5c9082ef45ce6de888aa"><span class="std std-ref">RatatoskWindInfoSubscriber::relDir</span></a> property.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>relDir</strong> – <strong>[out]</strong> New value. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N26RatatoskWindInfoSubscriber21trueWindRelDirChangedEd">
+<span id="_CPPv3N26RatatoskWindInfoSubscriber21trueWindRelDirChangedEd"></span><span id="_CPPv2N26RatatoskWindInfoSubscriber21trueWindRelDirChangedEd"></span><span id="RatatoskWindInfoSubscriber::trueWindRelDirChanged__double"></span><span class="target" id="classRatatoskWindInfoSubscriber_1af46449d7974dfeb6fb3e0dac4b7b54d2"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">trueWindRelDirChanged</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">trueWindRelDir</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N26RatatoskWindInfoSubscriber21trueWindRelDirChangedEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DDS value has changed. </p>
+<p>This signal is connected to the QML <a class="reference internal" href="#classRatatoskWindInfoSubscriber_1a4dcb341691f12f1ac7c3cbb27ebef151"><span class="std std-ref">RatatoskWindInfoSubscriber::trueWindRelDir</span></a> property.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>trueWindRelDir</strong> – <strong>[out]</strong> New value. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N26RatatoskWindInfoSubscriber16timestampChangedE9QDateTime">
+<span id="_CPPv3N26RatatoskWindInfoSubscriber16timestampChangedE9QDateTime"></span><span id="_CPPv2N26RatatoskWindInfoSubscriber16timestampChangedE9QDateTime"></span><span id="RatatoskWindInfoSubscriber::timestampChanged__QDateTime"></span><span class="target" id="classRatatoskWindInfoSubscriber_1a435897c8e89c574a0bf9cea2758f4680"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">timestampChanged</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">QDateTime</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">timestamp</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N26RatatoskWindInfoSubscriber16timestampChangedE9QDateTime" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Timestamp of DDS value has changed. </p>
+<p>This signal is connected to the QML <a class="reference internal" href="#classRatatoskWindInfoSubscriber_1af951a35b250cdb1c9ced31f220b7cd26"><span class="std std-ref">RatatoskWindInfoSubscriber::timestamp</span></a> property.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>timestamp</strong> – <strong>[out]</strong> New timestamp value. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N26RatatoskWindInfoSubscriber10eventHeardEv">
+<span id="_CPPv3N26RatatoskWindInfoSubscriber10eventHeardEv"></span><span id="_CPPv2N26RatatoskWindInfoSubscriber10eventHeardEv"></span><span id="RatatoskWindInfoSubscriber::eventHeard"></span><span class="target" id="classRatatoskWindInfoSubscriber_1acc1e8893ca0c1e396ccc84d4e9b8586f"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">eventHeard</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N26RatatoskWindInfoSubscriber10eventHeardEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>DdsReaderListener calls this signal when there is data available on the subscribed topic. </p>
+<p>If <a class="reference internal" href="#classRatatoskWindInfoSubscriber"><span class="std std-ref">RatatoskWindInfoSubscriber</span></a> is initialized with_listener=true, <a class="reference internal" href="#classRatatoskWindInfoSubscriber_1acc1e8893ca0c1e396ccc84d4e9b8586f"><span class="std std-ref">eventHeard()</span></a> will be connected to the slot <a class="reference internal" href="#classRatatoskWindInfoSubscriber_1a559328f6fd3e704d51bef2b9d1f12f15"><span class="std std-ref">updateValue()</span></a>. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-properties">Properties</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N26RatatoskWindInfoSubscriber9trueSpeedE">
+<span id="_CPPv3N26RatatoskWindInfoSubscriber9trueSpeedE"></span><span id="_CPPv2N26RatatoskWindInfoSubscriber9trueSpeedE"></span><span id="RatatoskWindInfoSubscriber::trueSpeed__double"></span><span class="target" id="classRatatoskWindInfoSubscriber_1ad0fa73997acc8e73b2ca6b939492cc00"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">trueSpeed</span></span></span><a class="headerlink" href="#_CPPv4N26RatatoskWindInfoSubscriber9trueSpeedE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>True speed [m/s]. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N26RatatoskWindInfoSubscriber7trueDirE">
+<span id="_CPPv3N26RatatoskWindInfoSubscriber7trueDirE"></span><span id="_CPPv2N26RatatoskWindInfoSubscriber7trueDirE"></span><span id="RatatoskWindInfoSubscriber::trueDir__double"></span><span class="target" id="classRatatoskWindInfoSubscriber_1a24d3300c568e8a6748f9edb42fcfb1e0"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">trueDir</span></span></span><a class="headerlink" href="#_CPPv4N26RatatoskWindInfoSubscriber7trueDirE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>True direction [rad]. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N26RatatoskWindInfoSubscriber8relSpeedE">
+<span id="_CPPv3N26RatatoskWindInfoSubscriber8relSpeedE"></span><span id="_CPPv2N26RatatoskWindInfoSubscriber8relSpeedE"></span><span id="RatatoskWindInfoSubscriber::relSpeed__double"></span><span class="target" id="classRatatoskWindInfoSubscriber_1a0f605b390ed8019aff27cf1bf83a93fa"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">relSpeed</span></span></span><a class="headerlink" href="#_CPPv4N26RatatoskWindInfoSubscriber8relSpeedE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Relative speed [m/s]. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N26RatatoskWindInfoSubscriber6relDirE">
+<span id="_CPPv3N26RatatoskWindInfoSubscriber6relDirE"></span><span id="_CPPv2N26RatatoskWindInfoSubscriber6relDirE"></span><span id="RatatoskWindInfoSubscriber::relDir__double"></span><span class="target" id="classRatatoskWindInfoSubscriber_1a49496638dccd5c9082ef45ce6de888aa"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">relDir</span></span></span><a class="headerlink" href="#_CPPv4N26RatatoskWindInfoSubscriber6relDirE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Relative direction [rad]. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N26RatatoskWindInfoSubscriber14trueWindRelDirE">
+<span id="_CPPv3N26RatatoskWindInfoSubscriber14trueWindRelDirE"></span><span id="_CPPv2N26RatatoskWindInfoSubscriber14trueWindRelDirE"></span><span id="RatatoskWindInfoSubscriber::trueWindRelDir__double"></span><span class="target" id="classRatatoskWindInfoSubscriber_1a4dcb341691f12f1ac7c3cbb27ebef151"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">trueWindRelDir</span></span></span><a class="headerlink" href="#_CPPv4N26RatatoskWindInfoSubscriber14trueWindRelDirE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>True wind relative direction [m/s]. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N26RatatoskWindInfoSubscriber9timestampE">
+<span id="_CPPv3N26RatatoskWindInfoSubscriber9timestampE"></span><span id="_CPPv2N26RatatoskWindInfoSubscriber9timestampE"></span><span id="RatatoskWindInfoSubscriber::timestamp__QDateTime"></span><span class="target" id="classRatatoskWindInfoSubscriber_1af951a35b250cdb1c9ced31f220b7cd26"></span><span class="n"><span class="pre">QDateTime</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">timestamp</span></span></span><a class="headerlink" href="#_CPPv4N26RatatoskWindInfoSubscriber9timestampE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Timestamp of sample. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N26RatatoskWindInfoSubscriber8m_readerE">
+<span id="_CPPv3N26RatatoskWindInfoSubscriber8m_readerE"></span><span id="_CPPv2N26RatatoskWindInfoSubscriber8m_readerE"></span><span id="RatatoskWindInfoSubscriber::m_reader__std::unique_ptr:sinspekto::Reader:ratatosk::types::WindInfo::"></span><span class="target" id="classRatatoskWindInfoSubscriber_1a3c75d15b12490b60f6dcd73846359580"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unique_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">sinspekto</span></span><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../api_private/structsinspekto_1_1Reader.html#_CPPv4I0EN9sinspekto6ReaderE" title="sinspekto::Reader"><span class="n"><span class="pre">Reader</span></span></a><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">ratatosk</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">types</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">WindInfo</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m_reader</span></span></span><a class="headerlink" href="#_CPPv4N26RatatoskWindInfoSubscriber8m_readerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The DDS reader wrapper class. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="enum_namespaceqml__enums_1a91a3db16c3322be5b42a537cbf33d61d.html" class="btn btn-neutral float-right" title="Enum CommandType" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="classRatatoskPosInfoSubscriber.html" class="btn btn-neutral float-left" title="Class RatatoskPosInfoSubscriber" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, SINTEF Ocean.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. <jinja2.runtime.BlockReference object at 0x7f998c4b15d0>
+
+<br /><br />
+<table>
+  <tr>
+    <td width="120" style="vertical-align:middle;text-align:center">
+      <img alt="FHF" style="border-width:0" width="100" src="../_static/FHF-black-txt.png" />
+    </td>
+    <td>
+      This work was funded by <a href="https://www.fhf.no/fhf/about-fhf-english">FHF &ndash; Norwegian Seafood Research Fund</a> with <a href="https://www.fhf.no/prosjekter/prosjektbasen/901350/">Grant No. 901350</a>.<br /><br />
+    </td>
+  </tr>
+  <tr>
+    <td width="90" style="vertical-align:middle;text-align:center">
+      <img alt="GNU General Public License, Version 3.0" style="border-width:0" width="90" src="https://upload.wikimedia.org/wikipedia/commons/9/93/GPLv3_Logo.svg" />
+  </td>
+  <td>
+      This program is free software: you can redistribute it and/or modify
+      it under the terms of the GNU General Public License as published by
+      the Free Software Foundation, either version 3 of the License, or
+      (at your option) any later version.<br /><br />
+
+      This program is distributed in the hope that it will be useful,
+      but WITHOUT ANY WARRANTY; without even the implied warranty of
+      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+      GNU General Public License for more details.<br /><br />
+
+      You should have received a copy of the GNU General Public License
+      along with this program.  If not, see <a rel="license" href="https://www.gnu.org/licenses/">gnu.org/licenses</a>.
+  </td>
+  </tr>
+</table>
+
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
