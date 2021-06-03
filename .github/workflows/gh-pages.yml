@@ -52,12 +52,13 @@ jobs:
       - name: Build
         run: |
           mkdir build
+          mkdir public
           cd build
           conan install .. -o sinspekto:with_doc=True --build missing
-          conan build ..
-          cd ..
-          mkdir public
-          mv build/package/share/doc/sinspekto/html/* public/
+          cmake -DWITH_DOC=ON -DCMAKE_INSTALL_PREFIX=install ..
+          cmake --build . --target doc
+          cmake -DCOMPONENT=doc -P cmake_install.cmake
+          mv install/share/doc/sinspekto/html/* ../public/
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/main'
