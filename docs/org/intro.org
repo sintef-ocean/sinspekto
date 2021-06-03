@@ -1,0 +1,364 @@
+* Introduction
+
+** Overview
+
+   /Sinspekto/ is a module that provides Qt modeling language ([[https://doc.qt.io/qt-5/qtqml-index.html][QML]]) components for
+   interacting with applications that use the data distribution service standard [[https://www.omg.org/spec/DDS/About-DDS/][OMG DDS]]
+   as communication middleware.
+
+   Sinspekto consists of classes that define various [[https://doc.qt.io/qt-5/qtqml-syntax-objectattributes.html][QML Object Attributes]], which are
+   translated to / from DDS topics. This means that by using sinspekto QML elements in
+   your application, it is possible to interact with other systems using DDS.
+
+   Currently, sinspekto supports a limited number of DDS structures, which are defined in
+   @@rst::ref:`namespace_fkin`@@. The DDS structures have accompanying adapter classes,
+   which expose the DDS structure in QML. The [[Component]] diagram below displays the core
+   functionality of sinspekto.
+
+   #+BEGIN_SRC plantuml :exports results :file ../static/container.svg
+      !include ../static/style.puml
+      !include <C4/C4_Component.puml>
+      'LAYOUT_WITH_LEGEND()
+
+      title [Component diagram]  Sinspekto
+
+      Person(user, "User", "Application user")
+
+      Container_Boundary(gui, "GUI Application") {
+        Component(qttodds, "Sinspekto QtToDds", "Component: Sinspekto", "Holds DDS domain participant and wrappers classes.")
+        Component(qml_comp, "QML element", "Component: QML", "A built-in QML element")
+        Component(sinspekto, "Sinspekto element", "Component: Sinspekto", "Translates between QML and DDS communication constructs")
+      }
+
+      System_Ext(dds, "DDS program(s)", "Applications using DDS communication")
+
+      Rel(user, gui, "Views")
+      Rel_Back_Neighbor(qttodds, sinspekto, "Retrieves DDS session data")
+      Rel(sinspekto, dds, "Sends and receives data [DDS]")
+      Rel_Neighbor(sinspekto, qml_comp, "Communicates [Qt Signals & Slots]")
+
+
+    #+END_SRC
+
+   #+CAPTION: Component diagram for Sinspekto.
+   #+Name: Component
+   #+ATTR_RST: :align center :scale 100
+   #+RESULTS:
+   [[file:../static/container.svg]]
+
+** Usage
+
+
+
+*** C++ setup
+
+   Once sinspekto is compiled and installed, it has to be linked to your application and
+   you need to include a header in your executable source file. You also have to call
+   @@rst::cpp:func:`sinspekto::LoadSinspektoQmlTypes`@@ before instancing the QML engine.
+
+   1. Link to sinspekto with some CMake code lines.
+      #+begin_src cmake
+        find_package(sinspekto CONFIG REQUIRED)
+        add_executable(your-app main.cpp)
+        target_link_libraries(your-app
+          Qt5::Widgets
+          Qt5::Quick
+          # and other libraries you use
+          sinspekto::sinspekto)
+      #+end_src
+
+   2. Add header and call  @@rst::cpp:func:`sinspekto::LoadSinspektoQmlTypes`@@.
+      #+begin_src cpp
+
+        #include <QApplication>
+        #include <QQmlEngine>
+        #include <QQmlComponent>
+        #include <QQuickWindow>
+        #include <QUrl>
+        #include <QDebug>
+
+        ///////// <<HERE>> ////////
+        #include "sinspekto/SinspektoQml.hpp"
+
+        int main(int argc, char *argv[]){
+
+          QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+          QApplication app(argc, argv);
+          app.setOrganizationName("The Organization");
+          app.setApplicationName("your-app");
+
+          ///////// <<HERE>> ////////
+          sinspekto::LoadSinspektoQmlTypes();
+          QQmlEngine engine;
+
+          QQmlComponent component(&engine);
+          QQuickWindow::setDefaultAlphaBuffer(true);
+          component.loadUrl(QUrl(QStringLiteral("qrc:/your-app.qml")));
+
+          if (component.isReady() )
+            component.create();
+          else
+            qWarning() << component.errorString();
+
+          return app.exec();
+
+        }
+      #+end_src
+
+*** Minimal QML example
+
+    Below is a [[Minimal example]]. It contains a functional pattern
+    for using sinspekto together with QML elements. In this particular example
+    there is a toggle switch, whose =checked= signal is connected to a
+    @@rst::cpp:class:`DdsBitPublisher`@@. Whenever the toggle switch changes, it is sent
+    on the DDS topic =testBit=. On the line below there is a
+    @@rst::cpp:class:`DdsBitSubscriber`@@ of the same topic. Its =signal= property is
+    connected to a toggle switch, so it mirrors the first switch, but the data flow goes
+    via the DDS communication bus, which makes it silly, but illustrative.
+
+    #+caption: Minimal QML example.
+    #+name: Minimal example
+    #+ATTR_RST: :align center :scale 70
+    [[file:../static/minimal.gif]]
+
+    The key steps to use sinspekto are:
+    + Import the sinspekto module with =import fkin.Dds 1.0=.
+    + Create a @@rst::cpp:class:`QtToDds`@@ and call its init() function and then
+      initialize all sinspekto DDS adapters.
+    + Use a sinspekto element's property attributes to connect to visual (or non-visual)
+      QML elements.
+
+    #+begin_src qml
+      import QtQuick 2.11
+      import QtQuick.Window 2.11
+      import QtQuick.Layouts 1.11
+      import QtQuick.Controls 2.4
+      import QtQuick.Controls.Material 2.4
+      import QtCharts 2.2
+
+      /// Loads sinspekto dds elements
+      import fkin.Dds 1.0
+
+      ApplicationWindow {
+          id: windowg
+          title: qsTr("Minimal QML example")
+          width: 480
+          height: 200
+          visible: true
+
+          /// Makes an instance of QtToDds
+          QtToDds {
+              id: ddsParticipant;
+              readonly property int domain: 0;
+
+              Component.onCompleted: {
+              /// initialize participant first, then the dds signals
+              init(domain);
+
+              /// initialize DDS adapters by calling their init functions.
+              ddsSubscriber.init(ddsParticipant, "testBit");
+              ddsPublisher.init(ddsParticipant, "testBit", aSwitch.checked, true);
+              }
+          }
+
+          GridLayout {
+              anchors.fill: parent;
+              anchors.margins: 20;
+              columns: 2;
+
+              Label { text: "DDS bit publisher"; }
+              Switch {
+                  id: aSwitch;
+                  text: qsTr("Send with DDS");
+                  checked: true;
+                  onToggled: {
+                      console.log("Switch signal is: " + ddsPublisher.signal);
+                  }
+
+                  /// sinspekto::DdsBitPublisher's signal is connected to the switch
+                  DdsBitPublisher {
+                      id: ddsPublisher;
+                      signal: aSwitch.checked;
+                  }
+              }
+              Label { text: "DDS bit subscriber"; }
+              Switch {
+                  id: aSwitchInput;
+                  text: qsTr("Received from DDS");
+                  checked: ddsSubscriber.signal;
+
+                  /// sinspekto::DdsBitSubscriber's signal is connected to the switch
+                  DdsBitSubscriber {
+                      id: ddsSubscriber;
+                  }
+              }
+          }
+      }
+    #+end_src
+
+*** Integrating sinspekto with QtChart
+
+    "Qt Charts module provides a set of easy to use chart components", [[https://doc.qt.io/qt-5/qtcharts-index.html][QtCharts]]. The chart
+    types make use of [[https://doc.qt.io/qt-5/qabstractseries.html][QAbstractSeries]]-derived data structure to store data. The sinspekto
+    module has classes that allow DDS data to be buffered and connected to QAbstractSeries
+    instances so that DDS data can be visualized with Qt Charts. In particular,
+    @@rst::cpp:class:`DdsDoubleBuffer`@@ and @@rst::cpp:class:`DdsTimepointBuffer`@@ are
+    used in buffer classes designed specifically for supported DDS data structures, like
+    for instance @@rst::cpp:class:`DdsIdVec1dBuffer`@@ for the
+    @@rst::cpp:class:`fkin::IdVec1d`@@ data type.
+
+    The following example shows how to use such a buffer class to store DDS data and
+    visualize it with a Qt Chart element. We will add a slider, which is connected to a
+    @@rst::cpp:class:`DdsIdVec1dPublisher`@@. The same DDS topic is subscribed to by
+    @@rst::cpp:class:`DdsIdVec1dBuffer`@@. This buffered data are visualized with a
+    [[https://doc.qt.io/qt-5/qml-qtcharts-lineseries.html][LineSeries]] element, see [[Chart QML example]].
+
+    #+caption: Chart QML example.
+    #+name: Chart QML example
+    #+ATTR_RST: :align center :scale 70
+    [[file:../static/chart.gif]]
+
+
+    In the code blocks below we only show an excerpt of the QML code, please consult
+    @@rst::ref:`file_src_qml_example_chart_example.qml`@@ for the whole example implementation.
+
+    Make an instance of @@rst::cpp:class:`QtToDds`@@ and instantiate the DDS adapters:
+    #+begin_src qml
+      QtToDds {
+        id: ddsParticipant;
+        readonly property int domain: 0;
+
+        Component.onCompleted: {
+          /// Initialize participant first, then the dds signals
+          init(domain);
+
+          /// Initialize the IdVec1d Publisher, on topic 'anInput' with recipient 'Test'.
+          ddsSlide.init(ddsParticipant, "anInput", "Test", theSlider.value, true);
+          /// Initialize the Subscriber buffer on same topic, with a buffer size of 50 values.
+          ddsSlideBuffer.init(ddsParticipant, "anInput", "Test", 50, false);
+        }
+      }
+      Item {
+        DdsIdVec1dPublisher { id: ddsSlide; }
+        DdsIdVec1dBuffer { id: ddsSlideBuffer; }
+      }
+    #+end_src
+
+    Create a slider and connect its value to the DDS publisher:
+    #+begin_src qml
+      Slider {
+          id: theSlider;
+          from: 10;
+          value: 15;
+          to: 30;
+          stepSize: 1;
+          snapMode: Slider.SnapOnRelease;
+          onValueChanged: { ddsSlide.value = theSlider.value; }
+      }
+    #+end_src
+
+    Create a ChartView, attach a LineSeries and create necessary connections:
+    #+begin_src qml
+      ChartView {
+          id: depthChart;
+          // .. misc. options
+
+          /// Sets signals and slots connections for the ddsSlideBuffer instance.
+          Connections {
+              target: ddsSlideBuffer;
+
+              // When new data have arrived on DDS, update slideSignal's QAbstractSeries data structures.
+              onNewData: {
+
+                /// Updates the axes of slideSignal with the time axis and x value of IdVec1d
+                /// buffer. If there were more attributes in the DDS structure, more calls to
+                /// updateSeries with other series and e.g. FKIN.Y may be needed.
+                ddsSlideBuffer.updateSeries(slideSignal, FKIN.T, FKIN.X);
+                // ddsSlideBuffer.updateSeries(otherSeries, FKIN.T, FKIN.Y); // e.g. in case of IdVec2d.
+              }
+
+              /// Ensures a sliding time range
+              function ensureTimeHorizon(timeChart, horizonMS, futureMS, t_min, t_max)
+              { ... }
+
+              // Update the viewable data range (y-axis)
+              onRangeChanged: {
+                  if(dim == FKIN.X) {
+                      slideSignal.axisY.min = ddsSlideBuffer.rangeX.x;
+                      slideSignal.axisY.max = ddsSlideBuffer.rangeX.y;
+                  }
+              }
+
+              // Update the viewble time range (x-axis)
+              onRangeTChanged: {
+                  slideSignal.axisX.min = ddsSlideBuffer.rangeTmin;
+                  slideSignal.axisX.max = ddsSlideBuffer.rangeTmax;
+
+                  ensureTimeHorizon(
+                      depthChart,
+                      slideSignal.horizonMS,
+                      slideSignal.futureMS,
+                      ddsSlideBuffer.rangeTmin,
+                      ddsSlideBuffer.rangeTmax);
+              }
+          }
+
+          /// The LineSeries chart. The x-axis is a DateTimeAxis, which makes use of QDateTime
+          LineSeries {
+              id: slideSignal;
+              name: qsTr("Slider Signal");
+              // .. options
+              property int futureMS: 1000;
+              property int horizonMS: 10000 - futureMS;
+
+              axisX: DateTimeAxis {
+                  titleText: qsTr("Time");
+                  format: "hh:mm:ss";
+                  labelsFont: window.plotFont;
+                  tickCount : 3;
+                  min: new Date();
+                  max: new Date();
+              }
+              axisY: ValueAxis {
+                  titleText: qsTr("Value") + " [-]";
+                  labelsFont: window.plotFont;
+                  reverse: true;
+                  min: 0;
+                  max: 0.1;
+              }
+          }
+      }
+    #+end_src
+
+    #+begin_warning
+    Newer version of Qt > 5.12(?) deprecates implicitly defined properties in
+    =Connections=, so instead of =onRangeChanged: {..}=, the new syntax =function
+    onRangeChanged(range, dim){..}= should be used, with signature equal to the slot
+    function, see [[https://doc.qt.io/qt-5/qml-qtqml-connections.html#details][qml connections]].
+    #+end_warning
+
+
+** Implementing new sinspekto components
+
+   Currently, adding support for new DDS data types require a bit of manual coding. The
+   best way to get started is to explore existing source code and copy similar
+   patterns. There are some steps to keep in mind when adding new QML components.
+
+   + Create a new =<new>.hpp= and =<new>.cpp= file in =include/sinspekto/= and =src/sinspekto/=, respectively.
+   + Add them in =src/CMakeLists.txt=.
+   + Remember to inherit from =QObject= and add desired signals, slots, and properties.
+   + Make sure that the IDL type is defined in an =idl= file from which the idl-compiler
+     creates c++ headers. This typically means any type you include from =RatatoskIDL=.
+   + For a DDS Subscriber, add =std::unique_ptr<sinspekto::Reader<YOUR_NEW_DDS_TYPE>>= as a member variable.
+   + For a DDS Publisher, add =std::unique_ptr<sinspekto::Writer<YOUR_NEW_DDS_TYPE>>= as a member variable.
+   + Forward declare the IDL-generated data type in =include/sinspekto/QtToDds.hpp=.
+   + If you have created a new IDL-file with namespace =<MODULE>=, be sure to include
+     =<MODULE>_types_DCPS.hpp= in =src/sinspekto/QtToDds.cpp=.
+   + Include your new header file in =src/sinspekto/SinspektoQml.cpp= and
+     to register the QML type with =qmlRegisterType<YOUR_CLASS>("fkin.Dds", 1, 0, "YOUR_CLASS")=.
+
+   @@rst::cpp:class:`sinspekto::Reader`@@ and @@rst::cpp:class:`sinspekto::Writer`@@ are
+   merely convenience classes that encapsulates common DDS settings and QoS
+   configurations. By default, they are set up with a default Quality of service. This is
+   usually good enough, but for more custom setups, you will need to implement your own
+   reader and writer classes as needed.

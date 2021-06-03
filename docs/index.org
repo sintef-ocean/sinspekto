@@ -1,0 +1,42 @@
+* Sinspekto
+Documentation created: {{{time(%F %H:%M)}}}
+
+#+BEGIN_EXPORT rst
+
+.. toctree::
+   :maxdepth: 3
+   :caption: Overview
+   :glob:
+
+   rst/intro.rst
+
+.. toctree::
+   :maxdepth: 3
+   :caption: Getting started
+
+   rst/installation.rst
+
+.. toctree::
+   :maxdepth: 3
+   :caption: Quick Reference
+
+#+END_EXPORT
+
+#+BEGIN_src emacs-lisp :results drawer :exports results  :wrap EXPORT rst
+(make-variable-buffer-local 'with-api-doc)
+(if with-api-doc
+  ".. toctree::
+   :maxdepth: 3
+   :caption: API Reference
+   :glob:
+
+   api/library-api
+   api_private/library-api-private
+
+:ref:`genindex`
+~~~~~~~~~~~~~~~~~" "")
+#+end_src
+
+#+RESULTS:
+#+begin_EXPORT rst
+#+end_EXPORT

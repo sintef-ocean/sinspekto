@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="/">
+    <file alias="chart.qml">example/chart_example.qml</file>
+  </qresource>
+</RCC>

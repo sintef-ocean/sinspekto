@@ -1,0 +1,242 @@
+#+TITLE: README sinspekto
+#+AUTHOR: Joakim Haugen
+#+EMAIL: joakim.haugen@sintef.no
+#+DATE: [2019-09-10 Tue]
+#+TODO: TODO(t) | DONE(d)
+#+STARTUP: overview
+#+STARTUP: logdone
+
+* Introduction
+
+  =sinspekto= is a [[https://www.qt.io/][Qt]]-based visualization library that enables you to create graphical
+  applications using declarative QML. The library provides a way to communicate with
+  back-end applications using adapters, which translate between Qt and [[https://www.omg.org/omg-dds-portal/][Data Distributive
+  Service (DDS)]]. This allow you to separate the graphical front-end application from the
+  back-ends using Interface Description Language (IDL) files. The communication between
+  your GUI application and DDS-enabled application is handled by a DDS middleware
+  implementation, like for instance [[https://github.com/ADLINK-IST/opensplice][OpenSplice]].
+  + =sinspekto= provides Qt QML-types that you can use in QML-based applications.
+  + =sinspekto= is cross-platform: =Windows=, =Linux=, =Android=.
+
+* Getting started
+
+  You need a compiler that supports /c++17/ to build =sinspekto=. It is known to compile
+  with =gcc 8=, =clang 9=, and =msvc++ 14.2=. You need the [[https://cmake.org/][CMake]] build system
+  generator. =sinspekto= requires [[https://sintef-ocean.github.io/ratatoskidl][RatatoskIDL]], [[https://github.com/ADLINK-IST/opensplice][opensplice-ce]], [[https://www.qt.io/][Qt]] and uses =boost=
+  [[https://www.boost.org/doc/libs/1_70_0/doc/html/circular_buffer.html][circular buffer]] to build.
+
+  The *recommended* approach to use the library is with the help of [[https://conan.io/][conan]]. =conan= is
+  a python tool, and once installed, you need to set the following conan remotes.
+  #+begin_src bash
+    python -m pip install conan
+
+    conan remote add sintef https://artifactory.smd.sintef.no/api/conan/conan-local
+    conan remote add bincrafters https://bincrafters.jfrog.io/artifactory/api/conan/public-conan
+    conan config set general.revisions_enabled=1
+  #+end_src
+
+  If your project uses =conan= and =CMake=, you can add the following to your
+  [[https://docs.conan.io/en/latest/reference/conanfile_txt.html][conanfile.txt]] and CMakeLists.txt, respectively:
+  #+begin_src ini
+    [requires]
+    sinspekto/[>=0.4.0]@sintef/stable
+    qt/5.15.2@bincrafters/stable
+
+    [generators]
+    cmake_paths
+    cmake_find_package
+    cmake
+    virtualenv
+    virtualrunenv
+  #+end_src
+
+  #+begin_src cmake
+    include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+    conan_basic_setup()
+    include(${CMAKE_BINARY_DIR}/conan_paths.cmake)
+
+    find_package(sinspekto CONFIG REQUIRED)
+    #... add_executable
+    target_link_executable(App
+      # other dependencies
+      sinspekto::sinspekto)
+  #+end_src
+
+  Building the documentation is /optional/. It is generated using =doxygen=, =sphinx=,
+  =emacs=, and =plantuml=. You also need the following python modules
+  (=docs/requirements.txt=):
+  #+INCLUDE: "docs/requirements.txt" src ini
+
+  Instructions for each platform is found below.
+
+** Configuration options and targets
+
+   The table below specifies library options.
+
+   | CMake Option    | conan option    | Default | Comment                            |
+   |-----------------+-----------------+---------+------------------------------------|
+   | =WITH_DOC=      | =with_doc=      | False   | Use =cmake --build . --target doc= |
+   | =WITH_EXAMPLES= | =with_examples= | False   | Not available for Android          |
+
+   In addition to the =doc= target, =package_it= will create =.deb= and =.tar.gz= packages
+   of the library. If the library is built without =conan=, the Debian packages will
+   contain dependencies to system packages (and =opensplice-ce=, which is non-standard).
+
+   #+begin_tip
+     To list all build targets (linux): =cmake --build . --target help=
+   #+end_tip
+
+** Linux
+
+*** Prerequisites (debian-based)
+    These instructions assume a =gcc= compiler and using =conan=.
+
+   #+begin_src bash :results output :shebang "#!/bin/bash"
+     apt-get install -y build-essential cmake pkg-config python3-pip
+     python -m pip install setuptools wheel conan
+   #+end_src
+
+   #+begin_note
+     There may be other (unknown) packages needed by transitive dependencies, which are
+     not installed by conan. You may either install them manually, or you can set
+     environment variable [[https://docs.conan.io/en/latest/reference/env_vars.html#conan-sysrequires-mode][CONAN SYSREQUIRES MODE=enabled]]
+   #+end_note
+
+*** Documentation prerequisites /(optional)/
+
+   #+begin_src bash :results output :shebang "#!/bin/bash"
+     apt-get install -y doxygen emacs-nox graphviz plantuml wget
+     python -m pip install -r docs/requirements.txt --upgrade
+     emacs -Q --batch -l docs/emacs-install-pkgs.el
+   #+end_src
+
+   If your distribution is a bit old, you may have to update =plantuml=.
+   #+begin_src bash :results output :shebang "#!/bin/bash"
+     wget https://sourceforge.net/projects/plantuml/files/plantuml.jar
+     mv plantuml.jar /usr/share/plantuml/
+   #+end_src
+
+*** Compiling on Linux
+
+    We compile with examples and documentation.
+    #+begin_src bash :results output :shebang "#!/bin/bash" :exports code
+      mkdir build && cd build
+      conan install .. --build missing -o sinspekto:with_examples=True
+      cmake -D WITH_EXAMPLES=ON -D WITH_DOC=ON ..
+      cmake --build . --parallel 4
+      cmake --build . --target doc
+    #+end_src
+
+    To run one of the example applications:
+    #+begin_src bash
+      . activate.sh     # Opensplice environment variables
+      . activate_run.sh # Dynamic libraries added to LD_LIBRARY_PATH
+      bin/sinspekto-app
+    #+end_src
+
+** Windows
+
+*** Prerequisites
+
+    Prerequisites using =conan=. Most commands expect you to run with elevated privileges.
+    We make use of [[https://chocolatey.org/][chocolatey]] package manager for windows:
+    #+begin_src sh
+      powershell -Command Set-ExecutionPolicy Bypass -Scope Process -Force; \
+        [System.Net.ServicePointManager]::SecurityProtocol = \
+        [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; \
+        iex ((New-Object System.Net.WebClient).DownloadString( \
+        'https://chocolatey.org/install.ps1'))
+    #+end_src
+
+    #+begin_src sh
+      choco install -y python3 Wget
+      choco install -y cmake --installargs '"ADD_CMAKE_TO_PATH=System"'
+      choco install -y git.install --params "/GitAndUnixToolsOnPath"
+      python -m pip install setuptools wheel conan win-unicode-console
+    #+end_src
+
+    Microsoft Visual Studio build tools if they are not already installed.
+    These commands must to be run with =cmd.exe=.
+    *Note* that the =vs_buildtools.exe= will run in the background.
+    These steps are not necessary if you have Visual Studio with C++ compilers installed.
+    #+begin_src sh
+      mkdir C:\TEMP && cd C:\TEMP
+      wget https://aka.ms/vs/16/release/vs_buildtools.exe
+      vs_buildtools.exe --quiet --norestart --wait --nocache \
+        --installPath C:\BuildTools \
+        --add Microsoft.VisualStudio.Workload.MSBuildTools \
+        --add Microsoft.VisualStudio.Workload.VCTools --includeRecommended
+      setx path "%path%;C:\BuildTools\Common7\Tools"
+    #+end_src
+
+    #+begin_note
+      You may need to start new command window sessions between commands to load the new PATH variables.
+    #+end_note
+
+*** Documentation prerequisites on Windows /(optional)/
+
+    #+begin_src sh
+      choco install -y doxygen.install emacs plantuml
+      choco install -y graphviz.portable --force # Maybe optional: 2.44 broken, downgrades to 2.38
+      python -m pip install -r docs/requirements.txt --upgrade
+      emacs -Q --batch -l docs/emacs-install-pkgs.el
+    #+end_src
+
+*** Compiling on Windows
+
+    We compile with examples and documentation.
+    #+begin_src bash
+      mkdir build && cd build
+      conan install .. -s build_type=Release -o sinspekto:with_examples=True
+      cmake -D WITH_EXAMPLES=ON -D WITH_DOC=ON  ..
+      cmake --build . --config Release --parallel 4
+      cmake --build . --target doc
+    #+end_src
+
+    To run one of the example applications:
+    #+begin_src bash
+      activate.bat     # Opensplice environment variables
+      activate_run.bat # Dynamic libraries added to PATH
+      bin/sinspekto-app
+    #+end_src
+
+** Android
+
+   You need Android NDK and SDK in addition to CMake and conan. There exists a conan
+   recipe, =android-cmdline-tools=, which downloads and sets the necessary Android
+   dependencies. The recipe is used to acquire necessary Android build tools in the
+   instructions below. The lowest supported API level is 28 (Android 9).
+
+*** Compiling for Android
+
+    Environment variables =ANDROID_NDK_ROOT= and =ANDROID_SDK_ROOT= must point to Android
+    build tools. This is also true for transitive dependencies. If the the environment
+    variables are not already on the path, you can do the following to install the tools
+    with conan before calling the =conan install= command for this library.
+    #+begin_src bash :results output :shebang "#!/bin/bash"
+      conan remote add joakimono https://api.bintray.com/conan/joakimono/conan
+      mkdir build_help && cd build_help
+      conan install "android-cmdline-tools/6858069@joakimono/testing" \
+        --generator virtualenv \
+        --profile=../tools/profiles/android_api28_x86_64
+      . activate.sh # or activate.bat
+      cd ..
+    #+end_src
+
+    The build profiles in =tools/profiles= is particularly useful for Android:
+    #+begin_src bash :results output :shebang "#!/bin/bash"
+      mkdir build && cd build
+      conan install .. --profile ../tools/profiles/android_api28_x86_64 --build missing
+      cmake ..
+      cmake --build . -j 4
+    #+end_src
+
+    #+begin_note
+      Not tested on Windows.
+    #+end_note
+
+** Troubleshooting
+
+   + If you have issues compiling Qt, with linker error for QMutex, try =unset CPATH=.
+   + If you run git bash, you need to run =emacs -Q --batch -l docs/emacs-install-pkgs.el=
+      prerequisite in a git bash session

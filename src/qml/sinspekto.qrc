@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="/">
+    <file alias="sinspekto.qml">sinspekto/sinspekto.qml</file>
+    <file alias="Splash.qml">components/Splash.qml</file>
+    <file alias="FkinFooter.qml">components/FkinFooter.qml</file>
+    <file alias="FkinDdsSetup.qml">components/FkinDdsSetup.qml</file>
+    <file alias="FkinControlComponents.qml">components/FkinControlComponents.qml</file>
+    <file alias="fkinHelpers.js">js/fkinHelpers.js</file>
+
+  </qresource>
+</RCC>

@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="/">
+    <file alias="minimal.qml">example/minimal_example.qml</file>
+  </qresource>
+</RCC>
